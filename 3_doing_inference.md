@@ -42,8 +42,9 @@ var flipping_away = function(){
     condition(a == true) //condition
     return result
 }
-var inference = Infer({model:'enumerate'},flipping_away)
-viz(inference)
+var options = {method: 'enumerate'}
+var dist = Infer(options,flipping_away)
+viz(dist)
 ```
 
 - You can compare this posterior distribution to the prior distribution by simply changing the `condition(a == true)` to `condition(true)` (or by simply commenting out the condition). 
@@ -62,8 +63,9 @@ var flipping_away = function(){
     condition(a + b < 2) //arbitray expression
     return a + b + c //arbitrary expression
 }
-var inference = Infer({model:'enumerate'},flipping_away)
-viz(inference)
+var options = {method: 'enumerate'}
+var dist = Infer(options,flipping_away)
+viz(dist)
 ```
 
 - This is one key strength since it allows us to cleanly separate out the description of the generative model, and the inference procedure. 
