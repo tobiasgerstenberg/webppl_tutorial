@@ -58,14 +58,10 @@ viz(repeat(1000,flipping_away))
 ```javascript
 var strength = gaussian(50,10) //Gaussian strength
 var strength = exponential(1,2) //Exponential strength
-strength
 ```
-
-## Recursion 
-
-- Recursion is a very powerful technique in which a function calls itself. 
 
 ## Memoization 
 
+- 
 
 ## Practice 
