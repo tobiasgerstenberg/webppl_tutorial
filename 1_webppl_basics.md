@@ -7,16 +7,16 @@
 ## Declaring variables 
 
 - Use `var` to name objects and assign a value to them. 
-- Use display() to print results.
+- Use print() to display results.
 
 ```javascript
-var strength = 2.5; // here we bind the symbol `strength` to the value 2.5
-display(strength) 
+var strength = 2.5 // here we bind the symbol `strength` to the value 2.5
+print(strength) 
 ```
 
 ```javascript
 var participantName = "Tobi" // can bind the symbol `participantName` to a string
-display(participantName)
+print(participantName)
 ```
 
 - Objects are a useful data-structure in JS, similar to dictionaries in Python.
@@ -29,7 +29,7 @@ var tobi = {
 	strength: 2.5,
 	lazy: false, //note the logical variable here
 }
-display(tobi.lazy)
+print(tobi.lazy)
 ```
 
 - We can also create arrays, like so. 
@@ -37,8 +37,8 @@ display(tobi.lazy)
 
 ```javascript
 var instructors = ["Tomer","Tobi","Kevin"] //an array of instructors 
-display(instructors) //displaying the whole team 
-display(instructors[0]) //displaying the first element of the instructor team
+print(instructors) //displaying the whole team 
+print(instructors[0]) //displaying the first element of the instructor team
 ``` 
 
 ## if-then statements 
@@ -48,16 +48,16 @@ display(instructors[0]) //displaying the first element of the instructor team
 
 ```javascript
 if (tobi.lazy){
-	display("Tobi is lazy!")
-} else
-	{display("Tobi is not lazy!")
+	print("Tobi is lazy!")
+} else {
+	print("Tobi is not lazy!")
 }
 ```
 - There is also an abbreviated form of if-then for lazy coders. 
 - Here, the general form is: `condition ? consequence : alternative`
 
 ```javascript 
-tobi.lazy ? display("Tobi is lazy!") : display("Tobi is not lazy!")
+tobi.lazy ? print("Tobi is lazy!") : print("Tobi is not lazy!")
 ```
 
 ## Defining functions 
@@ -85,7 +85,7 @@ var tomer = {
 	strength: 10,
 	lazy: true,
 }
-display(returnWinner(tobi,tomer) + " would win a tug of a war")
+print(returnWinner(tobi,tomer) + " would win a tug of a war")
 ```
 
 ## Higher order functions 
@@ -96,7 +96,7 @@ display(returnWinner(tobi,tomer) + " would win a tug of a war")
 ```javascript 
 var my_square = function(x){return x*x};
 var some_numbers = [1,2,3,4]
-display(map(my_square, some_numbers))
+print(map(my_square, some_numbers))
 ```
 
 ## Practice 

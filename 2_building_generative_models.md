@@ -6,7 +6,7 @@
 
 - `flip()` is a basic random primitive (akin to a coin-flip).
 - Run `flip()` a few times. 
-- Pro tip: An evaluation on the last line is displayed by default (so you don't really need `display()` to show it.)
+- Pro tip: An evaluation on the last line is displayed by default (so you don't really need `print()` to show it.)
 
 ```javascript
 flip()
@@ -18,7 +18,7 @@ flip()
 
 ```javascript
 var flipping = function(){
-    flip()
+	flip()
 }
 repeat(1000,flipping)
 ```
@@ -28,7 +28,7 @@ repeat(1000,flipping)
 
 ```javascript
 var biased_flipping = function(){
-    flip(0.7)
+	flip(0.7)
 }
 var repeated_flipping = repeat(1000,biased_flipping)
 viz(repeated_flipping)
@@ -41,17 +41,29 @@ viz(repeated_flipping)
 
 ```javascript
 var flipping_away = function(){
-    var a = flip(0.3)
-    var b = flip(0.3)
-    var c = flip(0.3)
-    return a + b + c
+	var a = flip(0.3)
+	var b = flip(0.3)
+	var c = flip(0.3)
+	return a + b + c
 }
 viz(repeat(1000,flipping_away))
+```
+
+## Sample from probability distributions 
+
+- webppl has a number of probability distributions that we can simply sample from. 
+
+```javascript
+var strength = gaussian(50,10) //Gaussian strength
+var strength = exponential(1,2) //Exponential strength
+strength
 ```
 
 ## Recursion 
 
 - Recursion is a very powerful technique in which a function calls itself. 
+
+## Memoization 
 
 
 ## Practice 
