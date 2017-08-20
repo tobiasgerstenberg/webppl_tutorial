@@ -1,8 +1,8 @@
 # Doing inference 
 
-- Test the different code snippets by navigating here: [http://webppl.org](webppl.org)
+- Test the different code snippets by navigating here: [webppl.org](http://webppl.org)
 - You can find a complete function reference here: [http://webppl.readthedocs.io/en/master/](http://webppl.readthedocs.io/en/master/)
-- Check out this chapter of the probmods book for more information: [https://probmods.org/chapters/03-conditioning.html](03-conditioning)
+- Check out this chapter of the probmods book for more information: [03-conditioning](https://probmods.org/chapters/03-conditioning.html)
 
 ## Conditioning on variables 
 
@@ -71,7 +71,7 @@ viz(dist)
 
 - This is one key strength since it allows us to cleanly separate out the description of the generative model, and the inference procedure. 
 
-## Recursion and rejection sampling
+## Rejection sampling
 
 - Recursion is a very powerful technique in which a function calls itself. 
 - We can use recursion to implement rejection query.

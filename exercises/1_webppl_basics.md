@@ -1,6 +1,6 @@
 # WebPPL basics
 
-- Test the different code snippets by navigating here: [http://webppl.org](webppl.org)
+- Test the different code snippets by navigating here: [webppl.org](http://webppl.org)
 - You can open a new file and save any code you've written.
 - Check out [https://probmods.org/chapters/13-appendix-js-basics.html](https://probmods.org/chapters/13-appendix-js-basics.html) for other Javascript basics, including mathematical and logical operations.
 
