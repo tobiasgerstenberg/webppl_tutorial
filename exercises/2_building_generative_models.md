@@ -59,8 +59,17 @@ var strength = exponential(1,2) //Exponential strength
 
 ## Memoization
 
-- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. For example, we might not know the color of Bob's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. However, we want to ensure that whenever we query for Bob's eye color within our model, we will return the same eye color.
+- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. For example, we might not know the color of Tobi's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. However, we want to ensure that whenever we query for Tobi's eye color within our model, we will return the same eye color.
 
-- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. A memoized procedure will sample new values if it is passed new arguments. Try playing with the following eye-color example 
+- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. A memoized procedure will sample new values if it is passed new arguments. Try playing with the following eye-color example:
+
+```javascript
+var eyeColor = mem(function (person) {
+    return uniformDraw(['blue', 'green', 'brown']);
+});
+[eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')];
+```
 
 ## Practice
+
+- Create a function for returning the strength of a person. What distribution makes sense to you? Should you use memoization? 
