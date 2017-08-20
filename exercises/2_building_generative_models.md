@@ -1,7 +1,7 @@
 # Building generative models
 
 - Test the different code snippets by navigating here: [webppl.org](http://webppl.org)
-- Check out this chapter of the probmods book for more information: [https://probmods.org/chapters/02-generative-models.html](02-generative-models)
+- Check out this chapter of the probmods book for more information: [02-generative-models](https://probmods.org/chapters/02-generative-models.html)
 
 ## Forward sampling and random primitives
 
@@ -165,7 +165,7 @@ Note that we don't have to worry about equal strengths here -- because these num
 -->
 
 
-4. Recursion (BONUS). Try to build the following procedure: You take a coin, and flip it. If the coin returns true ("heads"), stop. If the coin returns false ("tails"), then flip the coin again. Keep going in this manner, counting up the total number of tails you see before you hit tails.
+4. Recursion (BONUS). Try to build the following procedure: You take a coin, and flip it. If the coin returns `true` ("heads"), stop. If the coin returns `false` ("tails"), then flip the coin again. Keep going in this manner, counting up the total number of tails you see before you hit tails.
 
 - Below is the start of some code to construct this procedure, fill in the rest:
 
@@ -199,7 +199,7 @@ var countTails = function(){
 ```-->
 
 
-5. Try repeating `countTails` many times using `repeat` and visualize the result using `viz`. What does this distribution look like?
+5. (BONUS) Try repeating `countTails` many times using `repeat` and visualize the result using `viz`. What does this distribution look like?
 
 <!--
 - SOLUTION:
