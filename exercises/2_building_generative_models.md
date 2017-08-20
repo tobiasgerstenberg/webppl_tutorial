@@ -25,7 +25,7 @@ repeat(1000,flip)
 
 ```javascript
 var biasedFlipping = function(){
-		flip(0.7)
+	flip(0.7)
 }
 var repeatedFlipping = repeat(1000,biasedFlipping)
 viz(repeatedFlipping)
@@ -43,8 +43,8 @@ var flippingAway = function(){
 	var a = flip(0.3)
 	var b = flip(0.3)
 	var c = flip(0.3)
-	var result = a + b + c
-	return result
+	var d = a + b + c
+	return d
 }
 viz(repeat(1000,flippingAway))
 ```
@@ -66,7 +66,8 @@ whatIsThisEven()
 
 ## Memoization
 
-- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. For example, we might not know the color of Tobi's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. However, we want to ensure that whenever we query for Tobi's eye color within our model, we will return the same eye color.
+- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. For example, we might not know the color of Tobi's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. 
+- Run the following code and notice what's odd: 
 
 ```javascript
 var eyeColor = function (person) {
@@ -75,7 +76,10 @@ var eyeColor = function (person) {
 [eyeColor('tobi'), eyeColor('tobi'), eyeColor('tobi')];
 ```
 
-- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. A memoized procedure will sample new values if it is passed new arguments. Try playing with the following eye-color example:
+- Each time we call the `eyeColor()` function on `'tobi'` it draws again from a uniform distribution. 
+- However, we want to ensure that whenever we ask for Tobi's eye color within our model, it will return the same eye color.
+- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. A memoized procedure will sample new values if it is passed new arguments. 
+- Try playing with the following eye-color example:
 
 ```javascript
 var eyeColor = mem(function (person) {
@@ -93,7 +97,7 @@ var eyeColor = mem(function (person) {
 
 ## Practice
 
-- Create a function for returning the strength of a person. What distribution makes sense to you? Should you use memoization?
+1. Create a function for returning the strength of a person. What distribution makes sense to you? Should you use memoization?
 
 <!--
 - SOLUTION:
@@ -110,7 +114,7 @@ print("Tobi's strength: " + strength('tobi'));
 print("Tomer's strength: " + strength('tomer'));
 ```-->
 
-- Suppose someone in a tug of war sometimes decides to be lazy (one third of the time) and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
+2. Suppose someone in a tug of war sometimes decides to be lazy (one third of the time) and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
 
 <!--
 - SOLUTION:
@@ -128,7 +132,7 @@ print("Is Tobi lazy now? " + strength('tobi'));
 
 
 
-- Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
+3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
 
 <!--
 - SOLUTION:
@@ -161,7 +165,7 @@ Note that we don't have to worry about equal strengths here -- because these num
 -->
 
 
-- Recursion (BONUS). Try to build the following procedure: You take a coin, and flip it. If the coin returns true ("heads"), stop. If the coin returns false ("tails"), then flip the coin again. Keep going in this manner, counting up the total number of tails you see before you hit tails.
+4. Recursion (BONUS). Try to build the following procedure: You take a coin, and flip it. If the coin returns true ("heads"), stop. If the coin returns false ("tails"), then flip the coin again. Keep going in this manner, counting up the total number of tails you see before you hit tails.
 
 - Below is the start of some code to construct this procedure, fill in the rest:
 
@@ -195,7 +199,7 @@ var countTails = function(){
 ```-->
 
 
-- Try repeating `countTails` many times using `repeat` and visualize the result using `viz`. What does this distribution look like?
+5. Try repeating `countTails` many times using `repeat` and visualize the result using `viz`. What does this distribution look like?
 
 <!--
 - SOLUTION:
