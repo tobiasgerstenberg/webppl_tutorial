@@ -9,11 +9,11 @@
 
 ```javascript
 var flipping_away = function(){
-    var a = flip(0.3)
-    var b = flip(0.3)
-    var c = flip(0.3)
-    var result = a + b + c
-    return result
+		var a = flip(0.3)
+		var b = flip(0.3)
+		var c = flip(0.3)
+		var result = a + b + c
+		return result
 }
 viz(repeat(1000,flipping_away))
 ```
@@ -23,9 +23,9 @@ viz(repeat(1000,flipping_away))
 
 ```javascript
 var model = function(){
-    var ... //our model description
-    condition (...) // what we condition on
-    return ... // what we are interested in
+		var ... //our model description
+		condition (...) // what we condition on
+		return ... // what we are interested in
 }
 ```
 
@@ -35,12 +35,12 @@ var model = function(){
 
 ```javascript
 var flipping_away = function(){
-    var a = flip(0.3)
-    var b = flip(0.3)
-    var c = flip(0.3)
-    var result = a + b + c
-    condition(a == true) //condition
-    return result
+		var a = flip(0.3)
+		var b = flip(0.3)
+		var c = flip(0.3)
+		var result = a + b + c
+		condition(a == true) //condition
+		return result
 }
 var options = {method: 'enumerate'}
 var dist = Infer(options, flipping_away)
@@ -57,11 +57,11 @@ viz(dist)
 
 ```javascript
 var flipping_away = function(){
-    var a = flip(0.3)
-    var b = flip(0.3)
-    var c = flip(0.3)
-    condition(a + b < 2) //arbitray expression
-    return a + b + c //arbitrary expression
+		var a = flip(0.3)
+		var b = flip(0.3)
+		var c = flip(0.3)
+		condition(a + b < 2) //arbitray expression
+		return a + b + c //arbitrary expression
 }
 var options = {method: 'enumerate'}
 var dist = Infer(options, flipping_away)
@@ -79,11 +79,11 @@ viz(dist)
 
 ```javascript
 var flipping_away = function () {
-    var a = flip()
-    var b = flip()
-    var c = flip()
-    var d = a + b + c
-    return d >= 2 ? a : flipping_away()
+		var a = flip()
+		var b = flip()
+		var c = flip()
+		var d = a + b + c
+		return d >= 2 ? a : flipping_away()
 }
 viz(repeat(100, flipping_away))
 ```
@@ -95,6 +95,8 @@ viz(repeat(100, flipping_away))
 
 ## Practice 
 
+### Inference in the tug of war model
+
 - You now have learned about all the bits and pieces that make up the tug of war model. 
 - Here is the model: 
 
@@ -102,12 +104,12 @@ viz(repeat(100, flipping_away))
 var strength = mem(function (person) {return gaussian(50, 10)})
 var lazy = function(person) {return flip(1/3) }
 var pulling = function(person) {
-    return lazy(person) ? strength(person) / 2 : strength(person) 
-    }
+		return lazy(person) ? strength(person) / 2 : strength(person) 
+		}
 var totalPulling = function (team) {return sum(map(pulling, team))}
 var winner = function (team1, team2) {
-    totalPulling(team1) > totalPulling(team2) ? team1 : team2
-    }
+		totalPulling(team1) > totalPulling(team2) ? team1 : team2
+		}
 var beat = function(team1,team2){winner(team1,team2) == team1}
 ```
 
@@ -117,29 +119,88 @@ var beat = function(team1,team2){winner(team1,team2) == team1}
 - For the inference options, please use the following: `var options = {{method: 'MCMC', kernel: 'MH', samples: 25000}`. This implements a Markov Chain Monte Carlo inference. 
 - If all goes well, the `viz` function will output a density function. You can print out the mean of the distribution by using the `expectation()` function: `print('Expected strength: ' + expectation(dist))`
 
-- Solution: 
+- SOLUTION: 
+
 <!-- ```javascript
 var model = function() {
-  var strength = mem(function (person) {return gaussian(50, 10)})
-  var lazy = function(person) {return flip(1/3) }
-  var pulling = function(person) {
-    return lazy(person) ? strength(person) / 2 : strength(person) }
-  var totalPulling = function (team) {return sum(map(pulling, team))}
-  var winner = function (team1, team2) {
-    totalPulling(team1) > totalPulling(team2) ? team1 : team2 }
-  var beat = function(team1,team2){winner(team1,team2) == team1}
-
-  condition(beat(['Tom'], ['Steve','Bill']))
-  condition(true)
-  //condition(beat(['bob', 'sue'],  ['tom', 'jim']))
-  // interesting! 
-  
-  return strength('Tom')
+	//MODEL
+	var strength = mem(function (person) {return gaussian(50, 10)})
+	var lazy = function(person) {return flip(1/3) }
+	var pulling = function(person) {
+		return lazy(person) ? strength(person) / 2 : strength(person) }
+	var totalPulling = function (team) {return sum(map(pulling, team))}
+	var winner = function (team1, team2) {
+		totalPulling(team1) > totalPulling(team2) ? team1 : team2 }
+	var beat = function(team1,team2){winner(team1,team2) == team1}
+	
+	//CONDITION	
+	condition(beat(['Tom'], ['Steve','Bill']))
+	
+	//QUERY
+	return strength('Tom')
 }
 var options = {method: 'MCMC', kernel: 'MH', samples: 25000}
 var dist = Infer(options,
-                 model)
+								 model)
 
 viz(dist)
 print('Expected strength: ' + expectation(dist))
 ``` -->
+
+### Extending the tug of war model 
+
+- Extend the tug of war model so that you can ask whether a player was lazy in a particular match. 
+- To do so, you need to amend the functions to not only feature persons (or teams) but also matches. 
+- You need to make laziness a persistent property (using `mem`) that applies to a person in a match. 
+- Condition on the fact that Tom beat Tim in match 1 (hint: `condition(beat(['Tom'],['Tim'],1))`), and ask for whether Tom was lazy in match 1 (and whether Tim was lazy in match 1). 
+- How does the inference whether Tim was lazy in match1 change for the following series of matches?: match 1: Tim loses against Tom; match 2: Tim wins against Steve; match 3: Tim wins against Bill; match 4: Tim wins against Mark. (Note: Use `&` to combine multiple pieces of evidence in the condition statement `condition()`).
+
+
+- SOLUTION: 
+
+<!-- ```javascript
+var model = function(){
+	//MODEL 
+	var strength = mem(function(person) {
+		return gaussian(50, 10)
+	})
+
+	var lazy = mem(function(person, match) {
+		return flip(0.3)
+	})
+
+	var pulling = function(person, match) {
+		return lazy(person, match) ? strength(person) / 2 : strength(person) 
+	}
+
+	var totalPulling = function(team, match) {
+		return sum(map(function(person) {
+			return pulling(person, match)
+		}, team))
+	}
+
+	var winner = function(team1, team2, match) {
+		return totalPulling(team1, match) > totalPulling(team2, match) ? team1 : team2
+	}
+
+	var beat = function(team1,team2, match) {
+		return winner(team1,team2, match) == team1
+	}
+	
+	// CONDITION 
+	condition(
+		beat(['Tom'],['Tim'],1) & 
+		beat(['Tim'],['Steve'],2) &
+		beat(['Tim'],['Bill'],3) &
+		beat(['Tim'],['Mark'],4)
+	)
+
+	//QUERY 
+	return lazy('Tim',1)
+}
+var options = {method: 'MCMC', kernel: 'MH', samples: 25000}
+var dist = Infer(options,model)
+
+viz(dist)
+```
+ -->
