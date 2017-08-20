@@ -50,7 +50,7 @@ viz(repeat(1000,flipping_away))
 ```
 ## Sample from probability distributions
 
-- WebPPL has a number of probability distributions that we can simply sample from. Below are some examples, the full list can be found  [http://docs.webppl.org/en/master/distributions.html](here).
+- WebPPL has a number of probability distributions that we can simply sample from. Below are some examples, the full list can be found here: [http://docs.webppl.org/en/master/distributions.html](http://docs.webppl.org/en/master/distributions.html)
 
 ```javascript
 var strength = gaussian(50,10) //Gaussian strength

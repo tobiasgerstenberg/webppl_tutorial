@@ -1,6 +1,7 @@
 # Doing inference 
 
 - Test the different code snippets by navigating here: [http://webppl.org](webppl.org)
+- You can find a complete function reference here: [http://webppl.readthedocs.io/en/master/](http://webppl.readthedocs.io/en/master/)
 - Check out this chapter of the probmods book for more information: [https://probmods.org/chapters/03-conditioning.html](03-conditioning)
 
 ## Conditioning on variables 
@@ -90,8 +91,8 @@ viz(repeat(100, flipping_away))
 
 ## Other inference procedures 
 
-- In the previous examples, we used enumeration (`model: `enumerate``) to do inference. This was only feasible, since the space of possible program executions was rather small. 
-- 
+- In the previous examples, we used enumeration (`model: `enumerate``) to do inference. This was only feasible since the space of possible program executions was rather small. 
+- WebPPL implements a number of inference procedures. You can find more abou these here: [http://webppl.readthedocs.io/en/master/inference/methods.html](http://webppl.readthedocs.io/en/master/inference/methods.html)
 
 ## Practice 
 

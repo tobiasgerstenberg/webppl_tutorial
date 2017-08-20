@@ -4,6 +4,8 @@ This repository contains materials for the tutorial on WebPPL -- a probabilistic
 
 A web book on Probabilistic Models of Cognition written by Noah D. Goodman and Joshua B. Tenenbaum is available here [http://www.probmods.org](probmods.org)
 
+Another great online resource is [http://www.agentmodels.org](agentmodels.org) which illustrates how WebPPL can be used to model decision-making, planning, inference, etc.  
+
 Please contact Tobias Gerstenberg ([mailto:tger@mit.edu](tger@mit.edu)) in case you have any questions.
 
 ## Slides 
@@ -23,3 +25,10 @@ Please contact Tobias Gerstenberg ([mailto:tger@mit.edu](tger@mit.edu)) in case 
 ### 3_doing_inference
 
 - conditioning on variables; conditioning on arbitrary expression; rejection query, enumeration query and other kinds of inference 
+
+## Additional recources 
+
+- [http://webppl.readthedocs.io/en/master/](http://webppl.readthedocs.io/en/master/) Function reference for WebPPL.
+- [http://forestdb.org/](http://forestdb.org/) Repository for generative models. 
+- [http://dippl.org/](http://dippl.org/) Additional information about WebPPl.
+- [http://probabilistic-programming.org/wiki/Home](http://probabilistic-programming.org/wiki/Home) Information about different probabilistic programming languages. 
