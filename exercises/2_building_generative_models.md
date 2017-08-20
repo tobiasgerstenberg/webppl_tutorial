@@ -84,9 +84,9 @@ var eyeColor = mem(function (person) {
 [eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')];
 ```
 
-## Recursion 
+## Recursion
 
-- counting down example 
+- counting down example
 
 
 
@@ -95,9 +95,71 @@ var eyeColor = mem(function (person) {
 
 - Create a function for returning the strength of a person. What distribution makes sense to you? Should you use memoization?
 
-- Suppose someone in a tug of war sometimes decides to be lazy and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
+<!--
+- SOLUTION:
+
+A Gaussian seems like a reasonable distribution -- this assumes that there is some average strength in the population and deviations follow a bell curve.
+
+You SHOULD use memoization here -- Tobi's strength might change if he starts / stops working out, but it won't change in the time between two function calls
+
+ ```javascript
+var strength = mem(function (person) {return gaussian(50, 10)});
+
+print("Tobi's strength: " + strength('tobi'));
+print("Tobi's strength: " + strength('tobi'));
+print("Tomer's strength: " + strength('tomer'));
+```-->
+
+- Suppose someone in a tug of war sometimes decides to be lazy (one third of the time) and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
+
+<!--
+- SOLUTION:
+
+You should NOT use memoization here -- Tobi might work hard at one point but be lazy later. Memoization would force him to always be lazy or working hard
+
+ ```javascript
+var lazy = function(person) {return flip(1/3) };
+
+print("Is Tobi lazy? " + strength('tobi'));
+print("Is Tobi lazy again? " + strength('tobi'));
+print("Is Tobi lazy still? " + strength('tobi'));
+print("Is Tobi lazy now? " + strength('tobi'));
+```-->
+
+
 
 - Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
+
+<!--
+- SOLUTION:
+
+ ```javascript
+var tugWinner = function(person1, person2) {
+	var str1 = strength(person1);
+	var isLazy1 = lazy(person1);
+	var str2 = strength(person2);
+	var isLazy2 = lazy(person2);
+
+	if (isLazy1 & !isLazy2) { // person1 is lazy, person2 is not
+		return person2;
+	} else if (!isLazy1 & isLazy2) { // person2 is lazy, person1 is not
+		return person1;
+	} else { // Both or neither are lazy
+		return str1 > str2 ? person1 : person2
+	}
+};
+print("The winner between Tobi and Tomer is: " + tugWinner('tobi', 'tomer'));
+print("The winner between Tobi and Kevin is: " + tugWinner('tobi', 'kevin'));
+print("The winner between Kevin and Tomer is: " + tugWinner('kevin', 'tomer'));
+
+print ("Tobi's strength is: " + strength('tobi'));
+print ("Tomer's strength is: " + strength('tomer'));
+print ("Kevin's strength is: " + strength('kevin'));
+```
+
+Note that we don't have to worry about equal strengths here -- because these numbers are pulled from a continuous distribution, they will never be exactly equal
+-->
+
 
 - Recursion (BONUS). Try to build the following procedure: You take a coin, and flip it. If the coin returns true ("heads"), stop. If the coin returns false ("tails"), then flip the coin again. Keep going in this manner, counting up the total number of tails you see before you hit tails.
 
@@ -105,12 +167,42 @@ var eyeColor = mem(function (person) {
 
 ```javascript
 var countTails = function(){
-	if (){
-
-	} else{
-	
+	var flipAndAdd = function(tailsSoFar) {
+		if (...){
+			...
+		} else{
+			...
+		}
 	}
-}
+	return flipAndAdd(0);
+};
 ```
 
+<!--
+- SOLUTION:
+
+ ```javascript
+ var countTails = function(){
+ 	var flipAndAdd = function(tailsSoFar) {
+ 		if (flip()){ // Got heads
+ 			return tailsSoFar;
+ 		} else{
+ 			return flipAndAdd(tailsSoFar + 1);
+ 		}
+ 	}
+ 	return flipAndAdd(0);
+ };
+```-->
+
+
 - Try repeating `countTails` many times using `repeat` and visualize the result using `viz`. What does this distribution look like?
+
+<!--
+- SOLUTION:
+
+ ```javascript
+viz(repeat(1000, countTails));
+```
+... hey... that looks like an exponential distribution...
+
+-->

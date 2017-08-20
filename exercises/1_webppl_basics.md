@@ -104,8 +104,64 @@ print(map(mySquare, someNumbers))
 
 - Create several student objects (like the instructor objects from before). Assign them several properties, including strength.
 
-- Create a function `show_strength()` for displaying the strength of an object or student.
+<!--
+- SOLUTION:
 
-- Map the function `show_strength()` to an array of students and instructors.
+```javascript
+var kevin = {
+	firstName: "Kevin", lastName: "Smith", strength: 4
+};
+
+var andrei = {
+	firstName: "Andrei", lastName: "Barbu", strength: 12
+};
+
+var xavier = {
+	firstName: "Xavier", lastName: "Boix", strength: 12
+};
+```-->
+
+- Create a function `showStrength()` for displaying the strength of an object or student.
+
+<!--
+- SOLUTION:
+
+```javascript
+var showStrength = function(person) {
+	print(person.strength);
+};
+showStrength(tobi);
+```-->
+
+- Map the function `showStrength()` to an array of students and instructors.
+
+<!--
+- SOLUTION:
+
+```javascript
+// Map the showStrength() function onto a group
+var everyone = [tobi, tomer, kevin, andrei, xavier];
+print("Everyone's strengths:");
+map(showStrength, everyone);
+```-->
 
 - Amend the `returnWinner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions).
+
+<!--
+-SOLUTION:
+
+```javascript
+var returnWinner = function(personA, personB){
+	if (personA.strength > personB.strength){
+		return [personA.lastName, personA.firstName];
+	} else  if (personA.strength < personB.strength){
+		return [personB.lastName, personB.firstName];
+	} else {
+		return ["tied","match"];
+	}
+}
+
+print(returnWinner(tobi, tomer) + " won a tug of war");
+print(returnWinner(andrei, xavier) + " won a tug of war");
+
+```-->
