@@ -50,11 +50,15 @@ viz(repeat(1000,flipping_away))
 ```
 ## Sample from probability distributions
 
-- WebPPL has a number of probability distributions that we can simply sample from.
+- WebPPL has a number of probability distributions that we can simply sample from. Below are some examples, the full list can be found  [http://docs.webppl.org/en/master/distributions.html](here).
 
 ```javascript
 var strength = gaussian(50,10) //Gaussian strength
 var strength = exponential(1,2) //Exponential strength
+
+// we can easily combine distributions to make complex new ones
+var whatIsThisEven = function(){Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1,2))}
+whatIsThisEven()
 ```
 
 ## Memoization
