@@ -107,6 +107,4 @@ print(map(my_square, some_numbers))
 
 - Map the function `show_strength()` to an array of students and instructors.
 
-- Amend the `return_winner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions)
-
-<!-- // Note that this function doesn't account for ties, how would you amend it? -->
+- Amend the `return_winner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions).

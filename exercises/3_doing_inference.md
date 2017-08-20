@@ -119,9 +119,10 @@ var beat = function(team1,team2){winner(team1,team2) == team1}
 - For the inference options, please use the following: `var options = {{method: 'MCMC', kernel: 'MH', samples: 25000}`. This implements a Markov Chain Monte Carlo inference. 
 - If all goes well, the `viz` function will output a density function. You can print out the mean of the distribution by using the `expectation()` function: `print('Expected strength: ' + expectation(dist))`
 
-- SOLUTION: 
+<!--
+- SOLUTION:
 
-<!-- ```javascript
+ ```javascript
 var model = function() {
 	//MODEL
 	var strength = mem(function (person) {return gaussian(50, 10)})
@@ -155,10 +156,11 @@ print('Expected strength: ' + expectation(dist))
 - Condition on the fact that Tom beat Tim in match 1 (hint: `condition(beat(['Tom'],['Tim'],1))`), and ask for whether Tom was lazy in match 1 (and whether Tim was lazy in match 1). 
 - How does the inference whether Tim was lazy in match1 change for the following series of matches?: match 1: Tim loses against Tom; match 2: Tim wins against Steve; match 3: Tim wins against Bill; match 4: Tim wins against Mark. (Note: Use `&` to combine multiple pieces of evidence in the condition statement `condition()`).
 
-
+<!-- 
 - SOLUTION: 
 
-<!-- ```javascript
+```javascript
+
 var model = function(){
 	//MODEL 
 	var strength = mem(function(person) {
