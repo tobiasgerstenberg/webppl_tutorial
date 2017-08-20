@@ -54,11 +54,11 @@ viz(repeat(1000,flipping_away))
 
 ```javascript
 var strength = gaussian(50,10) //Gaussian strength
-var strength = exponential(1,2) //Exponential strength
+var strength = exponential(1) //Exponential strength
 
 // we can easily combine distributions to make complex new ones
-var whatIsThisEven = function(){Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1,2))}
-whatIsThisEven()
+var what_is_this_even = function(){Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1))}
+what_is_this_even()
 ```
 
 ## Memoization
@@ -73,6 +73,10 @@ var eyeColor = mem(function (person) {
 });
 [eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')];
 ```
+
+## Recursion 
+
+
 
 ## Practice
 

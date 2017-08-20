@@ -6,17 +6,22 @@
 
 ## Conditioning on variables 
 
-- Here is a our simple coin flip model from earlier. 
+### Rejection sampling 
+
+- Recursion is a very powerful technique in which a function calls itself. 
+- We can use recursion to implement rejection query.
+- Here we are interested in the value of `a`, conditioning on the fact that the sum of `a`, `b`, and `c` is `>= 2`.
+- Note how the `flipping_away` function is called inside the `flipping_away` function. The return statement is an if-else statement. If the condition is met `d >= 2`, the value of `a` is returned, otherwise the `flipping_away` function is called again. 
 
 ```javascript
-var flipping_away = function(){
-		var a = flip(0.3)
-		var b = flip(0.3)
-		var c = flip(0.3)
-		var result = a + b + c
-		return result
+var flipping_away = function () {
+		var a = flip()
+		var b = flip()
+		var c = flip()
+		var d = a + b + c
+		return d >= 2 ? a : flipping_away()
 }
-viz(repeat(1000,flipping_away))
+viz(repeat(100, flipping_away))
 ```
 
 - To do inference, we simply add a `condition` statement to our model. 
@@ -71,28 +76,12 @@ viz(dist)
 
 - This is one key strength since it allows us to cleanly separate out the description of the generative model, and the inference procedure. 
 
-## Rejection sampling
-
-- Recursion is a very powerful technique in which a function calls itself. 
-- We can use recursion to implement rejection query.
-- Here we are interested in the value of `a`, conditioning on the fact that the sum of `a`, `b`, and `c` is `>= 2`.
-- Note how the `flipping_away` function is called inside the `flipping_away` function. The return statement is an if-else statement. If the condition is met `d >= 2`, the value of `a` is returned, otherwise the `flipping_away` function is called again. 
-
-```javascript
-var flipping_away = function () {
-		var a = flip()
-		var b = flip()
-		var c = flip()
-		var d = a + b + c
-		return d >= 2 ? a : flipping_away()
-}
-viz(repeat(100, flipping_away))
-```
 
 ## Other inference procedures 
 
 - In the previous examples, we used enumeration (`model: `enumerate``) to do inference. This was only feasible since the space of possible program executions was rather small. 
 - WebPPL implements a number of inference procedures. You can find more abou these here: [http://webppl.readthedocs.io/en/master/inference/methods.html](http://webppl.readthedocs.io/en/master/inference/methods.html)
+
 
 ## Practice 
 
@@ -102,6 +91,7 @@ viz(repeat(100, flipping_away))
 - Here is the model: 
 
 ```javascript
+
 var strength = mem(function (person) {return gaussian(50, 10)})
 var lazy = function(person) {return flip(1/3) }
 var pulling = function(person) {
