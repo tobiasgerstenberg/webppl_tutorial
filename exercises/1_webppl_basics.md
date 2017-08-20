@@ -67,7 +67,7 @@ tobi.lazy ? print("Tobi is lazy!") : print("Tobi is not lazy!")
 - Here is an example:
 
 ```javascript
-var returnWinner = function(personA, personB){
+var return_winner = function(personA, personB){
 	if (personA.strength > personB.strength)
 		{return [personA.first_name, personA.last_name]}
 	else
@@ -85,7 +85,7 @@ var tomer = {
 	strength: 10,
 	lazy: true,
 }
-print(returnWinner(tobi,tomer) + " would win a tug of a war")
+print(return_winner(tobi,tomer) + " would win a tug of a war")
 ```
 
 ## Higher order functions
@@ -103,12 +103,10 @@ print(map(my_square, some_numbers))
 
 - Create several student objects (like the instructor objects from before). Assign them several properties, including strength.
 
-- Create a function `showStrength` for displaying the strength of an object or student.
+- Create a function `show_strength()` for displaying the strength of an object or student.
 
-- Map the function `showStrength` to an array of students and instructors.
+- Map the function `show_strength()` to an array of students and instructors.
 
-- Amend the `returnWinner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions)
-
-###
+- Amend the `return_winner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions)
 
 <!-- // Note that this function doesn't account for ties, how would you amend it? -->
