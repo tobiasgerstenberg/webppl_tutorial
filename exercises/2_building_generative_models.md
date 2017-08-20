@@ -76,6 +76,17 @@ var eyeColor = mem(function (person) {
 
 - Suppose someone in a tug of war sometimes decides to be lazy and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
 
-- Create a function for
+- Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
 
-- BONUS: Recursion. 
+- Recursion (BONUS). Try to build the following procedure: You take a coin, and flip it. If the coin returns true ("heads"), stop. If the coin returns false ("tails"), then flip the coin again. Keep going in this manner, counting up the total number of tails you see before you hit tails.
+
+- Below is the start of some code to construct this procedure, fill in the rest:
+
+```javascript
+var countTails = function(){
+  if ()
+{}
+  else
+      {}
+}
+```
