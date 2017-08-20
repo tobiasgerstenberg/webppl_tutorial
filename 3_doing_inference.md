@@ -94,3 +94,51 @@ viz(repeat(100, flipping_away))
 - 
 
 ## Practice 
+
+- You now have learned about all the bits and pieces that make up the tug of war model. 
+- Here is the model: 
+
+```javascript
+var strength = mem(function (person) {return gaussian(50, 10)})
+var lazy = function(person) {return flip(1/3) }
+var pulling = function(person) {
+    return lazy(person) ? strength(person) / 2 : strength(person) 
+    }
+var totalPulling = function (team) {return sum(map(pulling, team))}
+var winner = function (team1, team2) {
+    totalPulling(team1) > totalPulling(team2) ? team1 : team2
+    }
+var beat = function(team1,team2){winner(team1,team2) == team1}
+```
+
+- Change the code so that you can do inference with the model. 
+- Condition on the fact that `"Tom"` beat `"Bill"`, and return the strength of `"Tom"`. (Note: The `beat` function takes teams as input (i.e. arrays). So even if the team only has one player, you still need to put that player into an array.)
+- For the inference options, please use the following: `var options = {{method: 'MCMC', kernel: 'MH', samples: 25000}`. This implements a Markov Chain Monte Carlo inference. 
+- If all goes well, the `viz` function will output a density function. You can print out the mean of the distribution by using the `expectation()` function: `print('Expected strength: ' + expectation(dist))`
+
+- Solution: 
+<!-- ```javascript
+var model = function() {
+  var strength = mem(function (person) {return gaussian(50, 10)})
+  var lazy = function(person) {return flip(1/3) }
+  var pulling = function(person) {
+    return lazy(person) ? strength(person) / 2 : strength(person) }
+  var totalPulling = function (team) {return sum(map(pulling, team))}
+  var winner = function (team1, team2) {
+    totalPulling(team1) > totalPulling(team2) ? team1 : team2 }
+  var beat = function(team1,team2){winner(team1,team2) == team1}
+
+  condition(beat(['Tom'], ['Steve','Bill']))
+  condition(true)
+  //condition(beat(['bob', 'sue'],  ['tom', 'jim']))
+  // interesting! 
+  
+  return strength('Tom')
+}
+var options = {method: 'MCMC', kernel: 'MH', samples: 25000}
+var dist = Infer(options,
+                 model)
+
+viz(dist)
+print('Expected strength: ' + expectation(dist))
+``` -->
