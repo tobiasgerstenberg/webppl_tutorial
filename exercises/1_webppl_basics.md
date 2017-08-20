@@ -102,7 +102,7 @@ print(map(mySquare, someNumbers))
 
 ## Practice
 
-- Create several student objects (like the instructor objects from before). Assign them several properties, including strength.
+1. Create several student objects (like the instructor objects from before). Assign them several properties, including strength.
 
 <!--
 - SOLUTION:
@@ -121,7 +121,7 @@ var xavier = {
 };
 ```-->
 
-- Create a function `showStrength()` for displaying the strength of an object or student.
+2. Create a function `showStrength()` for displaying the strength of an object or student.
 
 <!--
 - SOLUTION:
@@ -133,7 +133,7 @@ var showStrength = function(person) {
 showStrength(tobi);
 ```-->
 
-- Map the function `showStrength()` to an array of students and instructors.
+3. Map the function `showStrength()` to an array of students and instructors.
 
 <!--
 - SOLUTION:
@@ -145,7 +145,7 @@ print("Everyone's strengths:");
 map(showStrength, everyone);
 ```-->
 
-- Amend the `returnWinner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions).
+4. Amend the `returnWinner()` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions).
 
 <!--
 -SOLUTION:
