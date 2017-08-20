@@ -1,6 +1,7 @@
 # Building generative models
 
 - Test the different code snippets by navigating here: [http://webppl.org](webppl.org)
+- Check out this chapter of the probmods book for more information: [https://probmods.org/chapters/02-generative-models.html](02-generative-models)
 
 ## Forward sampling and random primitives 
 
@@ -44,7 +45,8 @@ var flipping_away = function(){
 	var a = flip(0.3)
 	var b = flip(0.3)
 	var c = flip(0.3)
-	return a + b + c
+	var result = a + b + c
+	return result
 }
 viz(repeat(1000,flipping_away))
 ```
@@ -56,14 +58,10 @@ viz(repeat(1000,flipping_away))
 ```javascript
 var strength = gaussian(50,10) //Gaussian strength
 var strength = exponential(1,2) //Exponential strength
-strength
 ```
-
-## Recursion 
-
-- Recursion is a very powerful technique in which a function calls itself. 
 
 ## Memoization 
 
+- 
 
 ## Practice 
