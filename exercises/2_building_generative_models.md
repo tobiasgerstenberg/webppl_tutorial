@@ -90,3 +90,5 @@ var countTails = function(){
       {}
 }
 ```
+
+- Try repeating `countTails` many times using `repeat` and visualize the result using `viz`. What does this distribution look like?
