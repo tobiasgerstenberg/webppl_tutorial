@@ -25,7 +25,7 @@ repeat(1000,flip)
 
 ```javascript
 var biasedFlipping = function(){
-    flip(0.7)
+		flip(0.7)
 }
 var repeatedFlipping = repeat(1000,biasedFlipping)
 viz(repeatedFlipping)
@@ -40,11 +40,11 @@ viz(repeatedFlipping)
 
 ```javascript
 var flippingAway = function(){
-    var a = flip(0.3)
-    var b = flip(0.3)
-    var c = flip(0.3)
-    var result = a + b + c
-    return result
+	var a = flip(0.3)
+	var b = flip(0.3)
+	var c = flip(0.3)
+	var result = a + b + c
+	return result
 }
 viz(repeat(1000,flippingAway))
 ```
@@ -59,7 +59,7 @@ var strengthExponential = exponential(1) //Exponential strength
 
 // we can easily combine distributions to make complex new ones
 var whatIsThisEven = function(){
-    Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1))
+	Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1))
 }
 whatIsThisEven()
 ```
@@ -70,7 +70,7 @@ whatIsThisEven()
 
 ```javascript
 var eyeColor = function (person) {
-    return uniformDraw(['blue', 'green', 'brown']);
+	return uniformDraw(['blue', 'green', 'brown']);
 };
 [eyeColor('tobi'), eyeColor('tobi'), eyeColor('tobi')];
 ```
@@ -79,7 +79,7 @@ var eyeColor = function (person) {
 
 ```javascript
 var eyeColor = mem(function (person) {
-    return uniformDraw(['blue', 'green', 'brown']);
+	return uniformDraw(['blue', 'green', 'brown']);
 });
 [eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')];
 ```
@@ -105,10 +105,11 @@ var eyeColor = mem(function (person) {
 
 ```javascript
 var countTails = function(){
-  if ()
-{}
-  else
-      {}
+	if (){
+
+	} else{
+	
+	}
 }
 ```
 
