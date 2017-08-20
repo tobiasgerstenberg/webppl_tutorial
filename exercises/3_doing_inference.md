@@ -37,7 +37,7 @@ var model = function(){
 ```
 
 - To run inference, we use the webppl procedure `Infer`. 
-- `Infer` takes an inference procedure, and a function was input. 
+- `Infer` takes an inference procedure, and a function as input. 
 - Let's see what happens if we condition on the fact that `d <= 2`.
 
 ```javascript
@@ -54,11 +54,11 @@ var dist = Infer(options, flippingAway)
 viz(dist)
 ```
 
-- You can compare this posterior distribution to the prior distribution by simply changing the `condition(a == true)` to `condition(true)` (or by simply commenting out the condition). 
+- You can compare this posterior distribution to the prior distribution by simply changing the `condition(d <= 2)` to `condition(true)` (or by commenting out the `condition(...)` statement). 
 
 ## Conditioning on arbitrary expressions 
 
-- One of the very powerful features of the webppl programming language is that it can condition on arbitrary expressions composed of the variables in the model. 
+- One of the powerful features of the webppl programming language is that it allows conditioning on arbitrary expressions composed of the variables in the model. 
 - You can also return arbitrary expressions. 
 - Here is an example: 
 
@@ -76,7 +76,6 @@ viz(dist)
 ```
 
 - This is one key strength since it allows us to cleanly separate out the description of the generative model, and the inference procedure. 
-
 
 ## Other inference procedures 
 
@@ -147,8 +146,9 @@ print('Expected strength: ' + expectation(dist))
 - Extend the tug of war model so that you can ask whether a player was lazy in a particular match. 
 - To do so, you need to amend the functions to not only feature persons (or teams) but also matches. 
 - You need to make laziness a persistent property (using `mem`) that applies to a person in a match. 
-- Condition on the fact that Tom beat Tim in match 1 (hint: `condition(beat(['Tom'],['Tim'],1))`), and ask for whether Tom was lazy in match 1 (and whether Tim was lazy in match 1). 
-- How does the inference whether Tim was lazy in match1 change for the following series of matches?: match 1: Tim loses against Tom; match 2: Tim wins against Steve; match 3: Tim wins against Bill; match 4: Tim wins against Mark. (Note: Use `&` to combine multiple pieces of evidence in the condition statement `condition()`).
+- Once you've rewritten the code then try the following: 
+	+ Condition on the fact that Tom beat Tim in match 1 (hint: `condition(beat(['Tom'],['Tim'],1))`), and ask for whether Tom was lazy in match 1 (and whether Tim was lazy in match 1). 
+	+ How does the inference whether Tim was lazy in match1 change for the following series of matches?: match 1: Tim loses against Tom; match 2: Tim wins against Steve; match 3: Tim wins against Bill; match 4: Tim wins against Mark. (Note: Use `&` to combine multiple pieces of evidence in the condition statement `condition()`).
 
 <!-- 
 - SOLUTION: 
