@@ -72,4 +72,10 @@ var eyeColor = mem(function (person) {
 
 ## Practice
 
-- Create a function for returning the strength of a person. What distribution makes sense to you? Should you use memoization? 
+- Create a function for returning the strength of a person. What distribution makes sense to you? Should you use memoization?
+
+- Suppose someone in a tug of war sometimes decides to be lazy and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
+
+- Create a function for
+
+- BONUS: Recursion. 
