@@ -24,8 +24,8 @@ print(participantName)
 
 ```javascript
 var tobi = {
-	first_name: "Tobi",
-	last_name: "Gerstenberg",
+	firstName: "Tobi",
+	lastName: "Gerstenberg",
 	strength: 2.5,
 	lazy: false, //note the logical variable here
 }
@@ -67,12 +67,12 @@ tobi.lazy ? print("Tobi is lazy!") : print("Tobi is not lazy!")
 - Here is an example:
 
 ```javascript
-var return_winner = function(personA, personB){
-	if (personA.strength > personB.strength){
-                return [personA.last_name, personA.first_name]
-            } else {
-                return [personB.last_name, personB.first_name]
-            }  
+var returnWinner = function(personA, personB){
+if (personA.strength > personB.strength){
+		return [personA.lastName, personA.firstName]
+	} else {
+		return [personB.lastName, personB.firstName]
+	}  
 }
 ```
 
@@ -81,12 +81,12 @@ var return_winner = function(personA, personB){
 
 ```javascript
 var tomer = {
-	first_name: "Tomer",
-	last_name: "Ullman",
+	firstName: "Tomer",
+	lastName: "Ullman",
 	strength: 10,
 	lazy: true,
 }
-print(return_winner(tobi,tomer) + " would win a tug of a war")
+print(returnWinner(tobi,tomer) + " would win a tug of a war")
 ```
 
 ## Higher order functions
@@ -95,9 +95,9 @@ print(return_winner(tobi,tomer) + " would win a tug of a war")
 - For example, `map` is such a higher order function. It takes another function as an argument, and applies that function to a list of arguments in turn.
 
 ```javascript
-var my_square = function(x){return x*x};
-var some_numbers = [1,2,3,4]
-print(map(my_square, some_numbers))
+var mySquare = function(x){return x*x};
+var someNumbers = [1,2,3,4]
+print(map(mySquare, someNumbers))
 ```
 
 ## Practice
@@ -108,4 +108,4 @@ print(map(my_square, some_numbers))
 
 - Map the function `show_strength()` to an array of students and instructors.
 
-- Amend the `return_winner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions).
+- Amend the `returnWinner` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions).

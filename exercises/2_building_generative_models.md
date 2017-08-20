@@ -24,11 +24,11 @@ repeat(1000,flip)
 - Let's visualize flipping a biased coin with `p(true) = 0.7` 1000 times.
 
 ```javascript
-var biased_flipping = function(){
-	flip(0.7)
+var biasedFlipping = function(){
+    flip(0.7)
 }
-var repeated_flipping = repeat(1000,biased_flipping)
-viz(repeated_flipping)
+var repeatedFlipping = repeat(1000,biasedFlipping)
+viz(repeatedFlipping)
 ```
 
 - Comprehension check: Why wouldn't `repeat(1000,flip(0.7))` work?
@@ -39,31 +39,41 @@ viz(repeated_flipping)
 - Note that javascript turns `true` into `1`, and `false` into `0` for us, when we apply mathematical operations to logical variables.
 
 ```javascript
-var flipping_away = function(){
-	var a = flip(0.3)
-	var b = flip(0.3)
-	var c = flip(0.3)
-	var result = a + b + c
-	return result
+var flippingAway = function(){
+    var a = flip(0.3)
+    var b = flip(0.3)
+    var c = flip(0.3)
+    var result = a + b + c
+    return result
 }
-viz(repeat(1000,flipping_away))
+viz(repeat(1000,flippingAway))
 ```
+
 ## Sample from probability distributions
 
 - WebPPL has a number of probability distributions that we can simply sample from. Below are some examples, the full list can be found here: [http://docs.webppl.org/en/master/distributions.html](http://docs.webppl.org/en/master/distributions.html)
 
 ```javascript
-var strength = gaussian(50,10) //Gaussian strength
-var strength = exponential(1) //Exponential strength
+var strengthGaussian = gaussian(50,10) //Gaussian strength
+var strengthExponential = exponential(1) //Exponential strength
 
 // we can easily combine distributions to make complex new ones
-var what_is_this_even = function(){Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1))}
-what_is_this_even()
+var whatIsThisEven = function(){
+    Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1))
+}
+whatIsThisEven()
 ```
 
 ## Memoization
 
 - Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. For example, we might not know the color of Tobi's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. However, we want to ensure that whenever we query for Tobi's eye color within our model, we will return the same eye color.
+
+```javascript
+var eyeColor = function (person) {
+    return uniformDraw(['blue', 'green', 'brown']);
+};
+[eyeColor('tobi'), eyeColor('tobi'), eyeColor('tobi')];
+```
 
 - To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. A memoized procedure will sample new values if it is passed new arguments. Try playing with the following eye-color example:
 
@@ -75,6 +85,9 @@ var eyeColor = mem(function (person) {
 ```
 
 ## Recursion 
+
+- counting down example 
+
 
 
 
