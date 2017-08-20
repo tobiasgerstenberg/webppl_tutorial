@@ -68,10 +68,11 @@ tobi.lazy ? print("Tobi is lazy!") : print("Tobi is not lazy!")
 
 ```javascript
 var return_winner = function(personA, personB){
-	if (personA.strength > personB.strength)
-		{return [personA.first_name, personA.last_name]}
-	else
-		{return [personB.first_name, personB.last_name]}  
+	if (personA.strength > personB.strength){
+                return [personA.first_name, personA.last_name]
+            } else {
+                return [personB.first_name, personB.last_name]
+            }  
 }
 ```
 
