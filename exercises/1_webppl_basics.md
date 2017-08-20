@@ -101,9 +101,11 @@ print(map(my_square, some_numbers))
 
 ## Practice
 
-- Try creating several student objects (like the instructor objects from object). Assign them several properties, including strength. 
+- Create several student objects (like the instructor objects from object). Assign them several properties, including strength.
 
--
+- Create a function showStrength for displaying the strength of an object or student.
+
+- Map the function showStrength to an array of students and instructors. 
 
 ###
 
