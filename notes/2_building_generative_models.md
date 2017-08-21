@@ -94,7 +94,7 @@ print([eyeColor('Tobi'), eyeColor('Tomer'), eyeColor('Kevin'), eyeColor('Kevin')
 
 - Recursion is a very powerful technique. 
 - For example, recursive functions are important for capturing theory-of-mind inferences such as: "Lisa thinks that Tom thinks that she thinks that he is interested in her."
-- A recursive functions calls itself within the function call. It needs a stopping condition (which can be probabilistic). 
+- A recursive function calls itself within the function call. It needs a stopping condition (which can be probabilistic). 
 - Here is an example for how to implement a `while` loop using a recursive function. This function implements a "counting down to zero" procedure. 
 
 ```javascript
