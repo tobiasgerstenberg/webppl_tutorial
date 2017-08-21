@@ -140,7 +140,6 @@ print("Is Tobi lazy still? " + strength('tobi'))
 print("Is Tobi lazy now? " + strength('tobi'))
 ```-->
 
-
 3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
 
 <!--
@@ -194,7 +193,7 @@ var flipTails = function(){
  ```javascript
 var flipTails = function(){
 	if (flip()){
-	return 0
+		return 0
 	}
 	else
 	{
@@ -203,16 +202,3 @@ var flipTails = function(){
 }
 viz(repeat(1000,flipTails))
 ```-->
-
-
-5. (BONUS) Try repeating `countTails` many times using `repeat` and visualize the result using `viz`. What does this distribution look like?
-
-<!--
-- SOLUTION:
-
- ```javascript
-viz(repeat(1000, countTails))
-```
-... hey... that looks like an exponential distribution...
-
--->
