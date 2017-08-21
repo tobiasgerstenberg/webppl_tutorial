@@ -66,7 +66,8 @@ viz(repeat(1000,whatIsThisEven))
 
 ## Memoization
 
-- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. For example, we might not know the color of Tobi's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. 
+- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. 
+- For example, we might not know the color of Tobi's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. 
 - Run the following code and notice what's odd: 
 
 ```javascript
@@ -78,7 +79,8 @@ var eyeColor = function (person) {
 
 - Each time we call the `eyeColor()` function on `'Tobi'` it draws again from a uniform distribution. 
 - However, we want to ensure that whenever we ask for Tobi's eye color within our model, it will return the same eye color.
-- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. A memoized procedure will sample new values if it is passed new arguments. 
+- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. 
+- A memoized procedure will sample new values if it is passed new arguments. 
 - Try playing with the following eye-color example:
 
 ```javascript
@@ -90,15 +92,15 @@ var eyeColor = mem(function (person) {
 
 ## Recursion
 
-- Recursion is a very powerful technique. Through recursion, we can generate A recursive functions calls itself within the function call. 
-- For example, recursive functions are important for capturing social inferences such as: "Lisa thinks that Tom thinks that she thinks that he is interested in her."
+- Recursion is a very powerful technique. 
+- For example, recursive functions are important for capturing theory-of-mind inferences such as: "Lisa thinks that Tom thinks that she thinks that he is interested in her."
+- A recursive functions calls itself within the function call. 
 - Here is an example for how to implement a `while` loop using a recursive function. This function implements a "counting down to zero" procedure. 
 
 ```javascript
 var countingDown = function(number){
 	print(number)
-	var nextNumber = number-1
-	return (nextNumber == 0) ? print(nextNumber) : countingDown(nextNumber)
+	return (number == 0) ? print('done with counting') : countingDown(number-1)
 }
 countingDown(4)
 ```
@@ -139,7 +141,6 @@ print("Is Tobi lazy now? " + strength('tobi'));
 ```-->
 
 
-
 3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
 
 <!--
@@ -171,7 +172,6 @@ print ("Kevin's strength is: " + strength('kevin'));
 
 Note that we don't have to worry about equal strengths here -- because these numbers are pulled from a continuous distribution, they will never be exactly equal
 -->
-
 
 4. Recursion (BONUS). Try to build the following procedure: You take a coin, and flip it. If the coin returns `true` ("heads"), stop. If the coin returns `false` ("tails"), then flip the coin again. Keep going in this manner, counting up the total number of tails you see before you hit tails.
 
