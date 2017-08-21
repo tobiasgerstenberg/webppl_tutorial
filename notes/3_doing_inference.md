@@ -38,7 +38,7 @@ var model = function(){
 ```
 
 - To run inference, we use the webppl procedure `Infer`. 
-- `Infer` takes a method (defines what kind of inference procedure to run), and a function as input. 
+- `Infer` takes a method (that defines what kind of inference procedure to run), and a function as input. 
 
 ```javascript
 var flippingAway = function(){
