@@ -87,7 +87,7 @@ print([eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')])
 var eyeColor = mem(function (person) {
 	return uniformDraw(['blue', 'green', 'brown'])
 })
-print([eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')])
+print([eyeColor('Tobi'), eyeColor('Kevin'), eyeColor('Tomer')])
 ```
 
 ## Recursion
