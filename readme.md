@@ -12,7 +12,7 @@ Please contact Tobias Gerstenberg ([tger@mit.edu](mailto:tger@mit.edu)) in case 
 
 - Presentation slides in .key and .pdf format 
 
-## Exercises 
+## Notes 
 
 ### 1_webppl_basics 
 
