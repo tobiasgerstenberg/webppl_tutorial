@@ -47,7 +47,7 @@ var flippingAway = function(){
 	var c = flip(0.3)
 	var d = a + b + c
 	condition(d >= 2) //condition
-	return d
+	return a
 }
 var options = {method: 'rejection', samples: 1000}
 var dist = Infer(options, flippingAway)
@@ -68,7 +68,7 @@ var flippingAway = function(){
 	var b = flip(0.3)
 	var c = flip(0.3)
 	condition(a + b + c >= 2) //arbitray expression
-	return a + b + c //arbitrary expression
+	return a + b //arbitrary expression
 }
 var options = {method: 'rejection', samples: 1000}
 var dist = Infer(options, flippingAway)
