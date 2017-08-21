@@ -61,7 +61,7 @@ var strengthExponential = exponential(1) //Exponential strength
 var whatIsThisEven = function(){
 	Math.pow(Math.abs(gaussian(0,1)), uniform(0,1)*exponential(1))
 }
-whatIsThisEven()
+viz(repeat(1000,whatIsThisEven))
 ```
 
 ## Memoization

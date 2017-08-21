@@ -43,16 +43,19 @@ print(instructors[0]) //displaying the first element of the instructor team
 
 ## if-then statements
 
-- The general form is: if (condition) {consequence} else {alternative}
-- Let's see whether Tobi is lazy?!
+- The general form is: if (condition) {...} else if (condition) {...} else {...}
+- Let's see whether Tobi is strong:
 
 ```javascript
-if (tobi.lazy){
-	print("Tobi is lazy!")
+if (tobi.strength > 5){
+	print("Tobi is strong!")
+} else if (tobi.strength < 5) {
+	print("Tobi is weak!")
 } else {
-	print("Tobi is not lazy!")
+	print("Tobi is neither weak nor strong.")
 }
 ```
+
 - There is also an abbreviated form of if-then for lazy coders.
 - Here, the general form is: `condition ? consequence : alternative`
 
@@ -145,7 +148,7 @@ print("Everyone's strengths:");
 map(showStrength, everyone);
 ```-->
 
-4. Amend the `returnWinner()` function to handle ties (hint: you can use the abbreviated form of if-else to string together conditions).
+4. Amend the `returnWinner()` function to handle ties.
 
 <!--
 -SOLUTION:
