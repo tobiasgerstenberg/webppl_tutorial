@@ -7,7 +7,7 @@
 
 - `flip()` is a basic random primitive (akin to a coin-flip).
 - Run `flip()` a few times.
-- Pro tip: An evaluation on the last line is displayed by default (so you don't really need `print()` to show it.)
+- Tip: An evaluation on the last line is displayed by default (so you don't really need `print()` to show it.)
 
 ```javascript
 flip()
