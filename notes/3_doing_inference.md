@@ -9,7 +9,7 @@
 ### Rejection sampling 
 
 - We can use recursion to implement rejection query.
-- Here we are interested in the value of `a`, conditioning on the fact that the sum of `a`, `b`, and `c` is `== 2`.
+- Here we are interested in the value of `a`, conditioning on the fact that the sum of `a`, `b`, and `c` is `>= 2`.
 
 ```javascript
 var flippingAway = function () {
@@ -17,12 +17,12 @@ var flippingAway = function () {
 	var b = flip(0.3)
 	var c = flip(0.3)
 	var d = a + b + c
-	return d == 2 ? a : flippingAway()
+	return d >= 2 ? a : flippingAway()
 }
 viz(repeat(100, flippingAway))
 ```
 
-- Note how the `flippingAway()` function is called inside the `flippingAway()` function. The return statement is an if-else statement. If the condition is met `d == 2`, the value of `a` is returned, otherwise the `flippingAway()` function is called again. 
+- Note how the `flippingAway()` function is called inside the `flippingAway()` function. The return statement is an if-else statement. If the condition is met `d >= 2`, the value of `a` is returned, otherwise the `flippingAway()` function is called again. 
 
 ### Using WebPPL's inference procedures 
 
@@ -46,7 +46,7 @@ var flippingAway = function(){
 	var b = flip(0.3)
 	var c = flip(0.3)
 	var d = a + b + c
-	condition(d == 2) //condition
+	condition(d >= 2) //condition
 	return d
 }
 var options = {method: 'rejection', samples: 1000}
@@ -54,7 +54,7 @@ var dist = Infer(options, flippingAway)
 viz(dist)
 ```
 
-- You can compare this posterior distribution to the prior distribution by simply changing the `condition(d == 2)` to `condition(true)` (or by commenting out the `condition(...)` statement). 
+- You can compare this posterior distribution to the prior distribution by simply changing the `condition(d >= 2)` to `condition(true)` (or by commenting out the `condition(...)` statement). 
 
 ## Conditioning on arbitrary expressions 
 
@@ -67,7 +67,7 @@ var flippingAway = function(){
 	var a = flip(0.3)
 	var b = flip(0.3)
 	var c = flip(0.3)
-	condition(a + b + c == 2) //arbitray expression
+	condition(a + b + c >= 2) //arbitray expression
 	return a + b + c //arbitrary expression
 }
 var options = {method: 'rejection', samples: 1000}
