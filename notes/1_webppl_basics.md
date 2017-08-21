@@ -98,7 +98,7 @@ print(returnWinner(tobi,tomer) + " would win a tug of a war")
 - For example, `map` is such a higher order function. It takes another function as an argument, and applies that function to a list of arguments in turn.
 
 ```javascript
-var mySquare = function(x){return x*x};
+var mySquare = function(x){return x*x}
 var someNumbers = [1,2,3,4]
 print(map(mySquare, someNumbers))
 ```
@@ -113,15 +113,15 @@ print(map(mySquare, someNumbers))
 ```javascript
 var kevin = {
 	firstName: "Kevin", lastName: "Smith", strength: 4
-};
+}
 
 var andrei = {
 	firstName: "Andrei", lastName: "Barbu", strength: 12
-};
+}
 
 var xavier = {
 	firstName: "Xavier", lastName: "Boix", strength: 12
-};
+}
 ```-->
 
 2. Create a function `showStrength()` for displaying the strength of an object or student.
@@ -131,9 +131,9 @@ var xavier = {
 
 ```javascript
 var showStrength = function(person) {
-	print(person.strength);
-};
-showStrength(tobi);
+	print(person.strength)
+}
+showStrength(tobi)
 ```-->
 
 3. Map the function `showStrength()` to an array of students and instructors.
@@ -143,9 +143,9 @@ showStrength(tobi);
 
 ```javascript
 // Map the showStrength() function onto a group
-var everyone = [tobi, tomer, kevin, andrei, xavier];
-print("Everyone's strengths:");
-map(showStrength, everyone);
+var everyone = [tobi, tomer, kevin, andrei, xavier]
+print("Everyone's strengths:")
+map(showStrength, everyone)
 ```-->
 
 4. Amend the `returnWinner()` function to handle ties.
@@ -156,15 +156,15 @@ map(showStrength, everyone);
 ```javascript
 var returnWinner = function(personA, personB){
 	if (personA.strength > personB.strength){
-		return [personA.lastName, personA.firstName];
+		return [personA.lastName, personA.firstName]
 	} else  if (personA.strength < personB.strength){
-		return [personB.lastName, personB.firstName];
+		return [personB.lastName, personB.firstName]
 	} else {
-		return ["tied","match"];
+		return ["tied","match"]
 	}
 }
 
-print(returnWinner(tobi, tomer) + " won a tug of war");
-print(returnWinner(andrei, xavier) + " won a tug of war");
+print(returnWinner(tobi, tomer) + " won a tug of war")
+print(returnWinner(andrei, xavier) + " won a tug of war")
 
 ```-->

@@ -72,9 +72,9 @@ viz(repeat(1000,whatIsThisEven))
 
 ```javascript
 var eyeColor = function (person) {
-	return uniformDraw(['blue', 'green', 'brown']);
-};
-[eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')];
+	return uniformDraw(['blue', 'green', 'brown'])
+}
+[eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')]
 ```
 
 - Each time we call the `eyeColor()` function on `'Tobi'` it draws again from a uniform distribution. 
@@ -85,9 +85,9 @@ var eyeColor = function (person) {
 
 ```javascript
 var eyeColor = mem(function (person) {
-	return uniformDraw(['blue', 'green', 'brown']);
-});
-[eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')];
+	return uniformDraw(['blue', 'green', 'brown'])
+})
+[eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')]
 ```
 
 ## Recursion
@@ -117,11 +117,11 @@ A Gaussian seems like a reasonable distribution -- this assumes that there is so
 You SHOULD use memoization here -- Tobi's strength might change if he starts / stops working out, but it won't change in the time between two function calls
 
  ```javascript
-var strength = mem(function (person) {return gaussian(50, 10)});
+var strength = mem(function (person) {return gaussian(50, 10)})
 
-print("Tobi's strength: " + strength('tobi'));
-print("Tobi's strength: " + strength('tobi'));
-print("Tomer's strength: " + strength('tomer'));
+print("Tobi's strength: " + strength('tobi'))
+print("Tobi's strength: " + strength('tobi'))
+print("Tomer's strength: " + strength('tomer'))
 ```-->
 
 2. Suppose someone in a tug of war sometimes decides to be lazy (one third of the time) and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
@@ -132,12 +132,12 @@ print("Tomer's strength: " + strength('tomer'));
 You should NOT use memoization here -- Tobi might work hard at one point but be lazy later. Memoization would force him to always be lazy or working hard
 
  ```javascript
-var lazy = function(person) {return flip(1/3) };
+var lazy = function(person) {return flip(1/3) }
 
-print("Is Tobi lazy? " + strength('tobi'));
-print("Is Tobi lazy again? " + strength('tobi'));
-print("Is Tobi lazy still? " + strength('tobi'));
-print("Is Tobi lazy now? " + strength('tobi'));
+print("Is Tobi lazy? " + strength('tobi'))
+print("Is Tobi lazy again? " + strength('tobi'))
+print("Is Tobi lazy still? " + strength('tobi'))
+print("Is Tobi lazy now? " + strength('tobi'))
 ```-->
 
 
@@ -148,26 +148,26 @@ print("Is Tobi lazy now? " + strength('tobi'));
 
  ```javascript
 var tugWinner = function(person1, person2) {
-	var str1 = strength(person1);
-	var isLazy1 = lazy(person1);
-	var str2 = strength(person2);
-	var isLazy2 = lazy(person2);
+	var str1 = strength(person1)
+	var isLazy1 = lazy(person1)
+	var str2 = strength(person2)
+	var isLazy2 = lazy(person2)
 
 	if (isLazy1 & !isLazy2) { // person1 is lazy, person2 is not
-		return person2;
+		return person2
 	} else if (!isLazy1 & isLazy2) { // person2 is lazy, person1 is not
-		return person1;
+		return person1
 	} else { // Both or neither are lazy
 		return str1 > str2 ? person1 : person2
 	}
-};
-print("The winner between Tobi and Tomer is: " + tugWinner('tobi', 'tomer'));
-print("The winner between Tobi and Kevin is: " + tugWinner('tobi', 'kevin'));
-print("The winner between Kevin and Tomer is: " + tugWinner('kevin', 'tomer'));
+}
+print("The winner between Tobi and Tomer is: " + tugWinner('tobi', 'tomer'))
+print("The winner between Tobi and Kevin is: " + tugWinner('tobi', 'kevin'))
+print("The winner between Kevin and Tomer is: " + tugWinner('kevin', 'tomer'))
 
-print ("Tobi's strength is: " + strength('tobi'));
-print ("Tomer's strength is: " + strength('tomer'));
-print ("Kevin's strength is: " + strength('kevin'));
+print ("Tobi's strength is: " + strength('tobi'))
+print ("Tomer's strength is: " + strength('tomer'))
+print ("Kevin's strength is: " + strength('kevin'))
 ```
 
 Note that we don't have to worry about equal strengths here -- because these numbers are pulled from a continuous distribution, they will never be exactly equal
@@ -211,7 +211,7 @@ viz(repeat(1000,flipTails))
 - SOLUTION:
 
  ```javascript
-viz(repeat(1000, countTails));
+viz(repeat(1000, countTails))
 ```
 ... hey... that looks like an exponential distribution...
 
