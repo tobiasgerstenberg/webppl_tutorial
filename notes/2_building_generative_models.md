@@ -74,7 +74,7 @@ viz(repeat(1000,whatIsThisEven))
 var eyeColor = function (person) {
 	return uniformDraw(['blue', 'green', 'brown'])
 }
-[eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')]
+print([eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')])
 ```
 
 - Each time we call the `eyeColor()` function on `'Tobi'` it draws again from a uniform distribution. 
@@ -87,7 +87,7 @@ var eyeColor = function (person) {
 var eyeColor = mem(function (person) {
 	return uniformDraw(['blue', 'green', 'brown'])
 })
-[eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')]
+print([eyeColor('tobi'), eyeColor('kevin'), eyeColor('tomer')])
 ```
 
 ## Recursion
