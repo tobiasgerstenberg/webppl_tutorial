@@ -94,7 +94,7 @@ var eyeColor = mem(function (person) {
 
 - Recursion is a very powerful technique. 
 - For example, recursive functions are important for capturing theory-of-mind inferences such as: "Lisa thinks that Tom thinks that she thinks that he is interested in her."
-- A recursive functions calls itself within the function call. 
+- A recursive functions calls itself within the function call. It needs a stopping condition (which can be probabilistic). 
 - Here is an example for how to implement a `while` loop using a recursive function. This function implements a "counting down to zero" procedure. 
 
 ```javascript
@@ -178,32 +178,30 @@ Note that we don't have to worry about equal strengths here -- because these num
 - Below is the start of some code to construct this procedure, fill in the rest:
 
 ```javascript
-var countTails = function(){
-	var flipAndAdd = function(tailsSoFar) {
-		if (...){
-			...
-		} else{
-			...
-		}
+var flipTails = function(){
+	if (...){
+		return ...
+	} else {
+		return ...
 	}
-	return flipAndAdd(0);
-};
+}
+//viz(repeat(1000,flipTails)) //uncomment this bit to visualize your results once you've updated the function
 ```
 
 <!--
 - SOLUTION:
 
  ```javascript
- var countTails = function(){
- 	var flipAndAdd = function(tailsSoFar) {
- 		if (flip()){ // Got heads
- 			return tailsSoFar;
- 		} else{
- 			return flipAndAdd(tailsSoFar + 1);
- 		}
- 	}
- 	return flipAndAdd(0);
- };
+var flipTails = function(){
+	if (flip()){
+	return 0
+	}
+	else
+	{
+		return 1+flipTails()
+	}
+}
+viz(repeat(1000,flipTails))
 ```-->
 
 
