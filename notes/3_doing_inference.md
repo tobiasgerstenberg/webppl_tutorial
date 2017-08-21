@@ -10,7 +10,6 @@
 
 - We can use recursion to implement rejection query.
 - Here we are interested in the value of `a`, conditioning on the fact that the sum of `a`, `b`, and `c` is `<= 2`.
-- Note how the `flippingAway()` function is called inside the `flippingAway()` function. The return statement is an if-else statement. If the condition is met `d <= 2`, the value of `a` is returned, otherwise the `flippingAway()` function is called again. 
 
 ```javascript
 var flippingAway = function () {
@@ -22,6 +21,8 @@ var flippingAway = function () {
 }
 viz(repeat(100, flippingAway))
 ```
+
+- Note how the `flippingAway()` function is called inside the `flippingAway()` function. The return statement is an if-else statement. If the condition is met `d <= 2`, the value of `a` is returned, otherwise the `flippingAway()` function is called again. 
 
 ### Using WebPPL's inference procedures 
 
@@ -37,8 +38,7 @@ var model = function(){
 ```
 
 - To run inference, we use the webppl procedure `Infer`. 
-- `Infer` takes an inference procedure, and a function as input. 
-- Let's see what happens if we condition on the fact that `d <= 2`.
+- `Infer` takes a method (defines what kind of inference procedure to run), and a function as input. 
 
 ```javascript
 var flippingAway = function(){
@@ -49,7 +49,7 @@ var flippingAway = function(){
 	condition(d <= 2) //condition
 	return d
 }
-var options = {method: 'rejection'}
+var options = {method: 'rejection', samples: 1000}
 var dist = Infer(options, flippingAway)
 viz(dist)
 ```
@@ -70,7 +70,7 @@ var flippingAway = function(){
 	condition(a + b + c <= 2) //arbitray expression
 	return a + b + c //arbitrary expression
 }
-var options = {method: 'rejection'}
+var options = {method: 'rejection', samples: 1000}
 var dist = Infer(options, flippingAway)
 viz(dist)
 ```
