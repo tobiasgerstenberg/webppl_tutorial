@@ -79,7 +79,7 @@ viz(dist)
 
 ## Other inference procedures 
 
-- In the previous examples, we used rejection sampling (`model: `rejection`) to do inference. 
+- In the previous examples, we used rejection sampling (`model: 'rejection'`) to do inference. 
 - WebPPL implements a number of inference procedures. You can find more abou these here: [http://webppl.readthedocs.io/en/master/inference/methods.html](http://webppl.readthedocs.io/en/master/inference/methods.html)
 
 ## Practice 
