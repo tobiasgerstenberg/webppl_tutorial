@@ -79,9 +79,8 @@ viz(dist)
 
 ## Other inference procedures 
 
-- In the previous examples, we used enumeration (`model: `enumerate``) to do inference. This was only feasible since the space of possible program executions was rather small. 
+- In the previous examples, we used rejection sampling (`model: `rejection``) to do inference. 
 - WebPPL implements a number of inference procedures. You can find more abou these here: [http://webppl.readthedocs.io/en/master/inference/methods.html](http://webppl.readthedocs.io/en/master/inference/methods.html)
-- TODO: mention that MH is one of the most used procedures ... 
 
 ## Practice 
 
