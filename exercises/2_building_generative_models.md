@@ -73,10 +73,10 @@ whatIsThisEven()
 var eyeColor = function (person) {
 	return uniformDraw(['blue', 'green', 'brown']);
 };
-[eyeColor('tobi'), eyeColor('tobi'), eyeColor('tobi')];
+[eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')];
 ```
 
-- Each time we call the `eyeColor()` function on `'tobi'` it draws again from a uniform distribution. 
+- Each time we call the `eyeColor()` function on `'Tobi'` it draws again from a uniform distribution. 
 - However, we want to ensure that whenever we ask for Tobi's eye color within our model, it will return the same eye color.
 - To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. A memoized procedure will sample new values if it is passed new arguments. 
 - Try playing with the following eye-color example:
@@ -90,10 +90,18 @@ var eyeColor = mem(function (person) {
 
 ## Recursion
 
-- counting down example
+- Recursion is a very powerful technique. Through recursion, we can generate A recursive functions calls itself within the function call. 
+- For example, recursive functions are important for capturing social inferences such as: "Lisa thinks that Tom thinks that she thinks that he is interested in her."
+- Here is an example for how to implement a `while` loop using a recursive function. This function implements a "counting down to zero" procedure. 
 
-
-
+```javascript
+var countingDown = function(number){
+	print(number)
+	var nextNumber = number-1
+	return (nextNumber == 0) ? print(nextNumber) : countingDown(nextNumber)
+}
+countingDown(4)
+```
 
 ## Practice
 
