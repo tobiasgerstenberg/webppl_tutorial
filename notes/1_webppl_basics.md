@@ -63,7 +63,7 @@ tobi.lazy ? print("Tobi is lazy!") : print("Tobi is not lazy!")
 ## Defining functions
 
 - We use the `function()` primitive to define functions.
-- The general form of a function expression is: `function(arguments) {body}`
+- The general form of a function expression is: `function(arguments){body}`
 - Here is an example:
 
 ```javascript
