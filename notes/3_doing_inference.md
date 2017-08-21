@@ -145,7 +145,12 @@ print('Expected strength: ' + expectation(dist))
 - You need to make laziness a persistent property (using `mem`) that applies to a person in a match. 
 - Once you've rewritten the code then try the following: 
 	+ Condition on the fact that Tom beat Tim in match 1 (hint: `condition(beat(['Tom'],['Tim'],1))`), and ask for whether Tom was lazy in match 1 (and whether Tim was lazy in match 1). 
-	+ How does the inference whether Tim was lazy in match1 change for the following series of matches?: match 1: Tim loses against Tom; match 2: Tim wins against Steve; match 3: Tim wins against Bill; match 4: Tim wins against Mark. (Note: Use `&` to combine multiple pieces of evidence in the condition statement `condition()`).
+	+ How does the inference whether Tim was lazy in match1 change for the following series of matches?: 
+		* match 1: Tim loses against Tom 
+		* match 2: Tim wins against Steve
+		* match 3: Tim wins against Bill
+		* match 4: Tim wins against Mark
+	+  (Note: Use `&` to combine multiple pieces of evidence in the condition statement `condition()`).
 - You can also ask who would win in a game between Tim and Steve, based on prior information about each player. 
 
 <!-- 
