@@ -108,7 +108,7 @@ var model = function(){
 
 - First, make sure that you understand all the bits and pieces. 
 - Condition on the fact that `"Tom"` beat `"Bill"`, and return the strength of `"Tom"`. (Note: The `beat` function takes teams as input (i.e. two arrays of players). So even if the team only has one player, you still need to put that player into an array.)
-- For the inference options, please use the following: `var options = {{method: 'MCMC', kernel: 'MH', samples: 25000}`. This implements a Markov Chain Monte Carlo inference. 
+- For the inference options, please use the following: `var options = {{method: 'MCMC', kernel: 'MH', samples: 25000}`. This implements a Markov Chain Monte Carlo inference using the Metropolis-Hastings algorithm. 
 - If all goes well, the `viz` function will output a density function. You can print out the mean of the distribution by using the `expectation()` function: `print('Expected strength: ' + expectation(dist))`
 
 <!--
