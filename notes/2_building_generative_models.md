@@ -121,7 +121,7 @@ var strength = mem(function (person) {return gaussian(50, 10)})
 
 display("Tobi's strength: " + strength('tobi'))
 display("Tobi's strength: " + strength('tobi'))
-display("Tomer's strength: " + strength('tomer'))
+display("Kevin's strength: " + strength('kevin'))
 ```-->
 
 2. Suppose someone in a tug of war sometimes decides to be lazy (one third of the time) and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
