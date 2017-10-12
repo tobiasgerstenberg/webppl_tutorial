@@ -2,7 +2,7 @@
 
 - Test the different code snippets by navigating here: [webppl.org](http://webppl.org)
 - You can find a complete function reference here: [http://webppl.readthedocs.io/en/master/](http://webppl.readthedocs.io/en/master/)
-- Check out this chapter of the probmods book for more information: [03-conditioning](https://probmods.org/chapters/03-conditioning.html)
+- Check out this chapter of the probmods book for more information: [03-conditioning](http://probmods.org/chapters/03-conditioning.html)
 
 ## Conditioning on variables 
 

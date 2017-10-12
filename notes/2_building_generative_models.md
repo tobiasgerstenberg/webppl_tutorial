@@ -1,7 +1,7 @@
 # Building generative models
 
 - Test the different code snippets by navigating here: [webppl.org](http://webppl.org)
-- Check out this chapter of the probmods book for more information: [02-generative-models](https://probmods.org/chapters/02-generative-models.html)
+- Check out this chapter of the probmods book for more information: [02-generative-models](http://probmods.org/chapters/02-generative-models.html)
 
 ## Forward sampling and random primitives
 
