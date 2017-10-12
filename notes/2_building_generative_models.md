@@ -146,6 +146,9 @@ display("Is Tobi lazy now? " + lazy('tobi'))
 - SOLUTION:
 
  ```javascript
+var strength = mem(function (person) {return gaussian(50, 10)})
+var lazy = function(person) {return flip(1/3) }
+
 var tugWinner = function(person1, person2) {
 	var str1 = strength(person1)
 	var isLazy1 = lazy(person1)
