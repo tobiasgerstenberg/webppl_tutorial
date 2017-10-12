@@ -134,10 +134,10 @@ You should NOT use memoization here -- Tobi might work hard at one point but be 
  ```javascript
 var lazy = function(person) {return flip(1/3) }
 
-display("Is Tobi lazy? " + strength('tobi'))
-display("Is Tobi lazy again? " + strength('tobi'))
-display("Is Tobi lazy still? " + strength('tobi'))
-display("Is Tobi lazy now? " + strength('tobi'))
+display("Is Tobi lazy? " + lazy('tobi'))
+display("Is Tobi lazy again? " + lazy('tobi'))
+display("Is Tobi lazy still? " + lazy('tobi'))
+display("Is Tobi lazy now? " + lazy('tobi'))
 ```-->
 
 3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
