@@ -140,7 +140,7 @@ display("Is Tobi lazy still? " + lazy('tobi'))
 display("Is Tobi lazy now? " + lazy('tobi'))
 ```-->
 
-3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
+3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength. Note: The symbol for a logical AND is `&`, and the symbol for a logical NOT is `!`. 
 
 <!--
 - SOLUTION:
