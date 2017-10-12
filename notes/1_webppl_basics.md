@@ -114,7 +114,7 @@ var someNumbers = [1,2,3,4]
 display(map(mySquare, someNumbers))
 ```
 
-## Some useful keyboard shortcuts for use in `webppl.org`
+## Some useful keyboard shortcuts for use in [webppl.org](http://webppl.org)
 
 - `cmd+/`: comment/uncomment code 
 - select code and press `tab`to fix indentation -
