@@ -42,6 +42,14 @@ display(instructors[0]) //displaying the first element of the instructor team
 - Let's see whether Tobi is strong:
 
 ```javascript
+var tobi = {
+	firstName: "Tobi",
+	lastName: "Gerstenberg",
+	strength: 2.5,
+	lazy: false, //note the logical variable here
+}
+display(tobi.lazy)
+
 if (tobi.strength > 5){
 	display("Tobi is strong!")
 } else if (tobi.strength < 5) {
