@@ -32,3 +32,4 @@ Please contact Tobias Gerstenberg ([tger@mit.edu](mailto:tger@mit.edu)) in case 
 - [http://forestdb.org/](http://forestdb.org/) Repository for generative models. 
 - [http://dippl.org/](http://dippl.org/) Additional information about WebPPl.
 - [http://probabilistic-programming.org/wiki/Home](http://probabilistic-programming.org/wiki/Home) Information about different probabilistic programming languages. 
+- [https://lodash.com/docs/4.17.4](https://lodash.com/docs/4.17.4) Function reference 

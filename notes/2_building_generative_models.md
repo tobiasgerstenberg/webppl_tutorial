@@ -7,7 +7,7 @@
 
 - `flip()` is a basic random primitive (akin to a coin-flip).
 - Run `flip()` a few times.
-- Tip: An evaluation on the last line is displayed by default (so you don't really need `print()` to show it.)
+- Tip: An evaluation on the last line is displayed by default (so you don't really need `display()` to show it.)
 
 ```javascript
 flip()
@@ -67,18 +67,18 @@ viz(repeat(1000,whatIsThisEven))
 ## Memoization
 
 - Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. 
-- For example, we might not know the color of Tobi's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. 
+- For example, we might not know the color of Kevin's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. 
 - Run the following code and notice what's odd: 
 
 ```javascript
 var eyeColor = function (person) {
 	return uniformDraw(['blue', 'green', 'brown'])
 }
-print([eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')])
+display([eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Kevin')])
 ```
 
-- Each time we call the `eyeColor()` function on `'Tobi'` it draws again from a uniform distribution. 
-- However, we want to ensure that whenever we ask for Tobi's eye color within our model, it will return the same eye color.
+- Each time we call the `eyeColor()` function on `'Kevin'` it draws again from a uniform distribution. 
+- However, we want to ensure that whenever we ask for Kevin's eye color within our model, it will return the same eye color.
 - To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. 
 - A memoized procedure will sample new values if it is passed new arguments. 
 - Try playing with the following eye-color example:
@@ -87,7 +87,7 @@ print([eyeColor('Tobi'), eyeColor('Tobi'), eyeColor('Tobi')])
 var eyeColor = mem(function (person) {
 	return uniformDraw(['blue', 'green', 'brown'])
 })
-print([eyeColor('Tobi'), eyeColor('Tomer'), eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Kevin')])
+display([eyeColor('Kevin'), eyeColor('Tobi'), eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Kevin')])
 ```
 
 ## Recursion
@@ -99,8 +99,8 @@ print([eyeColor('Tobi'), eyeColor('Tomer'), eyeColor('Kevin'), eyeColor('Kevin')
 
 ```javascript
 var countingDown = function(number){
-	print(number)
-	return (number == 0) ? print('done with counting') : countingDown(number-1)
+	display(number)
+	return (number == 0) ? display('done with counting') : countingDown(number-1)
 }
 countingDown(4)
 ```
@@ -119,9 +119,9 @@ You SHOULD use memoization here -- Tobi's strength might change if he starts / s
  ```javascript
 var strength = mem(function (person) {return gaussian(50, 10)})
 
-print("Tobi's strength: " + strength('tobi'))
-print("Tobi's strength: " + strength('tobi'))
-print("Tomer's strength: " + strength('tomer'))
+display("Tobi's strength: " + strength('tobi'))
+display("Tobi's strength: " + strength('tobi'))
+display("Tomer's strength: " + strength('tomer'))
 ```-->
 
 2. Suppose someone in a tug of war sometimes decides to be lazy (one third of the time) and not pull that hard. Create a function for returning the laziness of a person. Should this be memoized?
@@ -134,10 +134,10 @@ You should NOT use memoization here -- Tobi might work hard at one point but be 
  ```javascript
 var lazy = function(person) {return flip(1/3) }
 
-print("Is Tobi lazy? " + strength('tobi'))
-print("Is Tobi lazy again? " + strength('tobi'))
-print("Is Tobi lazy still? " + strength('tobi'))
-print("Is Tobi lazy now? " + strength('tobi'))
+display("Is Tobi lazy? " + strength('tobi'))
+display("Is Tobi lazy again? " + strength('tobi'))
+display("Is Tobi lazy still? " + strength('tobi'))
+display("Is Tobi lazy now? " + strength('tobi'))
 ```-->
 
 3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength.
@@ -160,13 +160,13 @@ var tugWinner = function(person1, person2) {
 		return str1 > str2 ? person1 : person2
 	}
 }
-print("The winner between Tobi and Tomer is: " + tugWinner('tobi', 'tomer'))
-print("The winner between Tobi and Kevin is: " + tugWinner('tobi', 'kevin'))
-print("The winner between Kevin and Tomer is: " + tugWinner('kevin', 'tomer'))
+display("The winner between Tobi and Tomer is: " + tugWinner('tobi', 'tomer'))
+display("The winner between Tobi and Kevin is: " + tugWinner('tobi', 'kevin'))
+display("The winner between Kevin and Tomer is: " + tugWinner('kevin', 'tomer'))
 
-print ("Tobi's strength is: " + strength('tobi'))
-print ("Tomer's strength is: " + strength('tomer'))
-print ("Kevin's strength is: " + strength('kevin'))
+display ("Tobi's strength is: " + strength('tobi'))
+display ("Tomer's strength is: " + strength('tomer'))
+display ("Kevin's strength is: " + strength('kevin'))
 ```
 
 Note that we don't have to worry about equal strengths here -- because these numbers are pulled from a continuous distribution, they will never be exactly equal

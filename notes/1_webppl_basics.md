@@ -7,16 +7,11 @@
 ## Declaring variables
 
 - Use `var` to name objects and assign a value to them.
-- Use print() to display results.
+- Use display() to display results.
 
 ```javascript
 var strength = 2.5 // here we bind the symbol `strength` to the value 2.5
-print(strength)
-```
-
-```javascript
-var participantName = "Tobi" // can bind the symbol `participantName` to a string
-print(participantName)
+display(strength)
 ```
 
 - Objects are a useful data-structure in JS, similar to dictionaries in Python.
@@ -29,16 +24,16 @@ var tobi = {
 	strength: 2.5,
 	lazy: false, //note the logical variable here
 }
-print(tobi.lazy)
+display(tobi.lazy)
 ```
 
 - We can also create arrays, like so.
 - Note that javascript/webppl use 0 indexing. The first element of an array is indexed with 0 (not a 1).
 
 ```javascript
-var instructors = ["Tomer","Tobi","Kevin"] //an array of instructors
-print(instructors) //displaying the whole team
-print(instructors[0]) //displaying the first element of the instructor team
+var instructors = ["Tobi","Kevin"] //an array of instructors
+display(instructors) //displaying the whole team
+display(instructors[0]) //displaying the first element of the instructor team
 ```
 
 ## if-then statements
@@ -48,11 +43,11 @@ print(instructors[0]) //displaying the first element of the instructor team
 
 ```javascript
 if (tobi.strength > 5){
-	print("Tobi is strong!")
+	display("Tobi is strong!")
 } else if (tobi.strength < 5) {
-	print("Tobi is weak!")
+	display("Tobi is weak!")
 } else {
-	print("Tobi is neither weak nor strong.")
+	display("Tobi is neither weak nor strong.")
 }
 ```
 
@@ -60,36 +55,52 @@ if (tobi.strength > 5){
 - Here, the general form is: `condition ? consequence : alternative`
 
 ```javascript
-tobi.lazy ? print("Tobi is lazy!") : print("Tobi is not lazy!")
+tobi.lazy ? display("Tobi is lazy!") : display("Tobi is not lazy!")
 ```
 
 ## Defining functions
 
 - We use the `function()` primitive to define functions.
-- The general form of a function expression is: `function(arguments){body}`
+- The general form of a function expression is: `function(arguments){body; return ... }`
 - Here is an example:
 
 ```javascript
 var returnWinner = function(personA, personB){
 if (personA.strength > personB.strength){
-		return [personA.lastName, personA.firstName]
+		return personA.firstName
 	} else {
-		return [personB.lastName, personB.firstName]
+		return personB.firstName
 	}  
 }
 ```
 
-- Let's see who would win in a tug of war between Tomer and Tobi.
+- Let's see who would win in a tug of war between Kevin and Tobi.
 - Make sure that you have all the bits and pieces you need in the same code window.
 
 ```javascript
-var tomer = {
-	firstName: "Tomer",
-	lastName: "Ullman",
+var tobi = {
+	firstName: "Tobi",
+	lastName: "Gerstenberg",
+	strength: 2.5,
+	lazy: false, //note the logical variable here
+}
+
+var kevin = {
+	firstName: "Kevin",
+	lastName: "Smith",
 	strength: 10,
 	lazy: true,
 }
-print(returnWinner(tobi,tomer) + " would win a tug of a war")
+
+var returnWinner = function(personA, personB){
+if (personA.strength > personB.strength){
+		return personA.firstName
+	} else {
+		return personB.firstName
+	}  
+}
+
+display(returnWinner(kevin,tobi) + " would win a tug of a war")
 ```
 
 ## Higher order functions
@@ -100,8 +111,14 @@ print(returnWinner(tobi,tomer) + " would win a tug of a war")
 ```javascript
 var mySquare = function(x){return x*x}
 var someNumbers = [1,2,3,4]
-print(map(mySquare, someNumbers))
+display(map(mySquare, someNumbers))
 ```
+
+## Some useful keyboard shortcuts for use in `webppl.org`
+
+- `cmd+/`: comment/uncomment code 
+- select code and press `tab`to fix indentation -
+- `cmd+Enter`: run code 
 
 ## Practice
 
@@ -124,14 +141,14 @@ var xavier = {
 }
 ```-->
 
-2. Create a function `showStrength()` for displaying the strength of an object or student.
+2. Create a function `showStrength()` for displaying the strength of a student.
 
 <!--
 - SOLUTION:
 
 ```javascript
 var showStrength = function(person) {
-	print(person.strength)
+	display(person.strength)
 }
 showStrength(tobi)
 ```-->
@@ -144,7 +161,7 @@ showStrength(tobi)
 ```javascript
 // Map the showStrength() function onto a group
 var everyone = [tobi, tomer, kevin, andrei, xavier]
-print("Everyone's strengths:")
+display("Everyone's strengths:")
 map(showStrength, everyone)
 ```-->
 
@@ -164,7 +181,7 @@ var returnWinner = function(personA, personB){
 	}
 }
 
-print(returnWinner(tobi, tomer) + " won a tug of war")
-print(returnWinner(andrei, xavier) + " won a tug of war")
+display(returnWinner(tobi, tomer) + " won a tug of war")
+display(returnWinner(andrei, xavier) + " won a tug of war")
 
 ```-->

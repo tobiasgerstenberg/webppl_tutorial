@@ -38,7 +38,7 @@ var model = function(){
 ```
 
 - To run inference, we use the webppl procedure `Infer`. 
-- `Infer` takes a method (that defines what kind of inference procedure to run), and a function as input. 
+- `Infer` takes **options** (that define what kind of inference procedure to run), and a **function** as input. 
 
 ```javascript
 var flippingAway = function(){
@@ -108,8 +108,8 @@ var model = function(){
 
 - First, make sure that you understand all the bits and pieces. 
 - Condition on the fact that `"Tom"` beat `"Bill"`, and return the strength of `"Tom"`. (Note: The `beat` function takes teams as input (i.e. two arrays of players). So even if the team only has one player, you still need to put that player into an array.)
-- For the inference options, please use the following: `var options = {{method: 'MCMC', kernel: 'MH', samples: 25000}`. This implements a Markov Chain Monte Carlo inference using the Metropolis-Hastings algorithm. 
-- If all goes well, the `viz` function will output a density function. You can print out the mean of the distribution by using the `expectation()` function: `print('Expected strength: ' + expectation(dist))`
+- For the inference options, please use the following: `var options = {{method: 'MCMC', kernel: 'MH', samples: 10000}`. This implements a Markov Chain Monte Carlo inference using the Metropolis-Hastings algorithm. 
+- If all goes well, the `viz` function will output a density function. You can print out the mean of the distribution by using the `expectation()` function: `display('Expected strength: ' + expectation(dist))`
 
 <!--
 - SOLUTION:
@@ -132,10 +132,10 @@ var model = function() {
 	//QUERY
 	return strength('Tom')
 }
-var options = {method: 'MCMC', kernel: 'MH', samples: 25000}
+var options = {method: 'MCMC', kernel: 'MH', samples: 10000}
 var dist = Infer(options, model)
 viz(dist)
-print('Expected strength: ' + expectation(dist))
+display('Expected strength: ' + expectation(dist))
 ``` -->
 
 ### Extending the tug of war model 
@@ -150,6 +150,8 @@ print('Expected strength: ' + expectation(dist))
 		* Match 2: Tim wins against Steve
 		* Match 3: Tim wins against Bill
 		* Match 4: Tim wins against Mark
+		* Match 5: Tim wins against Kevin
+		* Match 6: Tim wins against Tobi
 	+  (Note: Use `&` to combine multiple pieces of evidence in the condition statement `condition()`).
 - You can also ask who would win in a game between Tim and Steve, based on prior information about each player. 
 
@@ -191,13 +193,15 @@ var model = function(){
 		beat(['Tom'],['Tim'],1) & 
 		beat(['Tim'],['Steve'],2) &
 		beat(['Tim'],['Bill'],3) &
-		beat(['Tim'],['Mark'],4)
+		beat(['Tim'],['Mark'],4) & 
+		beat(['Tim'],['Kevin'],5) &
+                  beat(['Tim'],['Tobi'],6)
 	)
 
 	//QUERY 
 	return lazy('Tim',1)
 }
-var options = {method: 'MCMC', kernel: 'MH', samples: 25000}
+var options = {method: 'MCMC', kernel: 'MH', samples: 10000}
 var dist = Infer(options,model)
 
 viz(dist)
