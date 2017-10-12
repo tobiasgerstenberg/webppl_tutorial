@@ -48,7 +48,6 @@ var tobi = {
 	strength: 2.5,
 	lazy: false, //note the logical variable here
 }
-display(tobi.lazy)
 
 if (tobi.strength > 5){
 	display("Tobi is strong!")
