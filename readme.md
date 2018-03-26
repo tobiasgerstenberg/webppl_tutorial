@@ -1,6 +1,6 @@
 # Readme 
 
-This repository contains materials for the tutorial on WebPPL -- a probabilistic programming language embedded in Javascript (see [webppl.org](http://webppl.org) for more information).
+This repository contains materials for the tutorial on WebPPL -- a probabilistic programming language embedded in Javascript (see [webppl.org](http://webppl.org) for more information)
 
 A web book on Probabilistic Models of Cognition written by Noah D. Goodman and Joshua B. Tenenbaum is available here [probmods.org](http://probmods.org)
 
