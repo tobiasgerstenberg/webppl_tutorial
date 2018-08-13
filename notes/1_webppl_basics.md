@@ -45,18 +45,18 @@ display(instructors[0]) //displaying the first element of the instructor team
 
 ```javascript
 var tobi = {
-	firstName: "Tobi",
-	lastName: "Gerstenberg",
+	firstName: "Kevin",
+	lastName: "Smith",
 	strength: 2.5,
 	lazy: false, //note the logical variable here
 }
 
-if (tobi.strength > 5){
-	display("Tobi is strong!")
-} else if (tobi.strength < 5) {
-	display("Tobi is weak!")
+if (kevin.strength > 5){
+	display("Kevin is strong!")
+} else if (kevin.strength < 5) {
+	display("Kevin is weak!")
 } else {
-	display("Tobi is neither weak nor strong.")
+	display("Kevin is neither weak nor strong.")
 }
 ```
 
@@ -64,7 +64,7 @@ if (tobi.strength > 5){
 - Here, the general form is: `condition ? consequence : alternative`
 
 ```javascript
-tobi.lazy ? display("Tobi is lazy!") : display("Tobi is not lazy!")
+kevin.lazy ? display("Kevin is lazy!") : display("Kevin is not lazy!")
 ```
 
 ## Defining functions
@@ -83,22 +83,22 @@ if (personA.strength > personB.strength){
 }
 ```
 
-- Let's see who would win in a tug of war between Kevin and Tobi.
+- Let's see who would win in a tug of war between Kelsey and Kevin.
 - Make sure that you have all the bits and pieces you need in the same code window.
 
 ```javascript
 var tobi = {
-	firstName: "Tobi",
-	lastName: "Gerstenberg",
-	strength: 2.5,
-	lazy: false, //note the logical variable here
+	firstName: "Kelsey",
+	lastName: "Allen",
+	strength: 10,
+	lazy: true, //note the logical variable here
 }
 
 var kevin = {
 	firstName: "Kevin",
 	lastName: "Smith",
-	strength: 10,
-	lazy: true,
+	strength: 2.5,
+	lazy: false,
 }
 
 var returnWinner = function(personA, personB){
@@ -109,7 +109,7 @@ if (personA.strength > personB.strength){
 	}  
 }
 
-display(returnWinner(kevin,tobi) + " would win a tug of a war")
+display(returnWinner(kevin,kelsey) + " would win a tug of a war")
 ```
 
 - Note that you can create functions that take no arguments.
