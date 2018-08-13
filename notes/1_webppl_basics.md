@@ -18,20 +18,22 @@ display(strength)
 - Here is how we create an object, and then refer to an object's attribute.
 
 ```javascript
-var tobi = {
-	firstName: "Tobi",
-	lastName: "Gerstenberg",
+var kevin = {
+	firstName: "Kevin",
+	lastName: "Smith",
 	strength: 2.5,
 	lazy: false, //note the logical variable here
 }
-display(tobi.lazy)
+// Two ways of accessing the same attribute:
+display(kevin.lazy)
+display(kevin['lazy'])
 ```
 
 - We can also create arrays, like so.
 - Note that javascript/webppl use 0 indexing. The first element of an array is indexed with 0 (not a 1).
 
 ```javascript
-var instructors = ["Tobi","Kevin"] //an array of instructors
+var instructors = ["Kelsey","Kevin"] //an array of instructors
 display(instructors) //displaying the whole team
 display(instructors[0]) //displaying the first element of the instructor team
 ```
@@ -110,6 +112,16 @@ if (personA.strength > personB.strength){
 display(returnWinner(kevin,tobi) + " would win a tug of a war")
 ```
 
+- Note that you can create functions that take no arguments.
+- This will be important later when our functions become stochastic.
+
+```javascript
+var sayHi =  function() {
+	display("Hello!")
+}
+sayHi()
+```
+
 ## Higher order functions
 
 - Higher order functions are functions that take other functions as their input.
@@ -123,9 +135,9 @@ display(map(mySquare, someNumbers))
 
 ## Some useful keyboard shortcuts for use in [webppl.org](http://webppl.org)
 
-- `cmd+/`: comment/uncomment code 
-- select code and press `tab`to fix indentation 
-- `cmd+Enter`: run code 
+- `cmd+/`: comment/uncomment code
+- select code and press `tab`to fix indentation
+- `cmd+Enter`: run code
 
 ## Practice
 
@@ -137,6 +149,10 @@ display(map(mySquare, someNumbers))
 ```javascript
 var kevin = {
 	firstName: "Kevin", lastName: "Smith", strength: 4
+}
+
+var kelsey = {
+	firstName: "Kelsey", lastName: "Allen", strength: 12
 }
 
 var andrei = {
@@ -167,7 +183,7 @@ showStrength(tobi)
 
 ```javascript
 // Map the showStrength() function onto a group
-var everyone = [tobi, tomer, kevin, andrei, xavier]
+var everyone = [kevin, kelsey, andrei, xavier]
 display("Everyone's strengths:")
 map(showStrength, everyone)
 ```-->
@@ -188,7 +204,7 @@ var returnWinner = function(personA, personB){
 	}
 }
 
-display(returnWinner(tobi, tomer) + " won a tug of war")
+display(returnWinner(kevin, andrei) + " won a tug of war")
 display(returnWinner(andrei, xavier) + " won a tug of war")
 
 ```-->

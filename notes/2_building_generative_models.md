@@ -25,7 +25,7 @@ repeat(1000,flip)
 
 ```javascript
 var biasedFlipping = function(){
-	flip(0.7)
+	return flip(0.7)
 }
 var repeatedFlipping = repeat(1000,biasedFlipping)
 viz(repeatedFlipping)
@@ -66,9 +66,9 @@ viz(repeat(1000,whatIsThisEven))
 
 ## Memoization
 
-- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried. 
-- For example, we might not know the color of Kevin's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors. 
-- Run the following code and notice what's odd: 
+- Sometimes we want to assume a probability distribution over a property or object, but we want to assure that we get the same answer whenever that property or object is queried.
+- For example, we might not know the color of Kevin's eyes. We can model this knowledge/uncertainty as a random distribution over different eye colors.
+- Run the following code and notice what's odd:
 
 ```javascript
 var eyeColor = function (person) {
@@ -77,25 +77,25 @@ var eyeColor = function (person) {
 display([eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Kevin')])
 ```
 
-- Each time we call the `eyeColor()` function on `'Kevin'` it draws again from a uniform distribution. 
+- Each time we call the `eyeColor()` function on `'Kevin'` it draws again from a uniform distribution.
 - However, we want to ensure that whenever we ask for Kevin's eye color within our model, it will return the same eye color.
-- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs. 
-- A memoized procedure will sample new values if it is passed new arguments. 
+- To do this we use the built-in procedure `mem`. A memoized procedure will sample its random values the first time it is run, but will re-use those same values on subsequent runs.
+- A memoized procedure will sample new values if it is passed new arguments.
 - Try playing with the following eye-color example:
 
 ```javascript
 var eyeColor = mem(function (person) {
 	return uniformDraw(['blue', 'green', 'brown'])
 })
-display([eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Tobi'), eyeColor('Tobi')])
+display([eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Kelsey'), eyeColor('Kelsey')])
 ```
 
 ## Recursion
 
-- Recursion is a very powerful technique. 
+- Recursion is a very powerful technique.
 - For example, recursive functions are important for capturing theory-of-mind inferences such as: "Lisa thinks that Tom thinks that she thinks that he is interested in her."
-- A recursive function calls itself within the function call. It needs a stopping condition (which can be probabilistic). 
-- Here is an example for how to implement a `while` loop using a recursive function. This function implements a "counting down to zero" procedure. 
+- A recursive function calls itself within the function call. It needs a stopping condition (which can be probabilistic).
+- Here is an example for how to implement a `while` loop using a recursive function. This function implements a "counting down to zero" procedure.
 
 ```javascript
 var countingDown = function(number){
@@ -114,13 +114,13 @@ countingDown(4)
 
 A Gaussian seems like a reasonable distribution -- this assumes that there is some average strength in the population and deviations follow a bell curve.
 
-You SHOULD use memoization here -- Tobi's strength might change if he starts / stops working out, but it won't change in the time between two function calls
+You SHOULD use memoization here -- A person's strength might change if she starts / stops working out, but it won't change in the time between two function calls
 
  ```javascript
 var strength = mem(function (person) {return gaussian(50, 10)})
 
-display("Tobi's strength: " + strength('tobi'))
-display("Tobi's strength: " + strength('tobi'))
+display("Kelsey's strength: " + strength('kelsey'))
+display("Kelsey's strength: " + strength('kelsey'))
 display("Kevin's strength: " + strength('kevin'))
 ```-->
 
@@ -129,18 +129,18 @@ display("Kevin's strength: " + strength('kevin'))
 <!--
 - SOLUTION:
 
-You should NOT use memoization here -- Tobi might work hard at one point but be lazy later. Memoization would force him to always be lazy or working hard
+You should NOT use memoization here -- A person might work hard at one point but be lazy later. Memoization would force him to always be lazy or working hard
 
  ```javascript
 var lazy = function(person) {return flip(1/3) }
 
-display("Is Tobi lazy? " + lazy('tobi'))
-display("Is Tobi lazy again? " + lazy('tobi'))
-display("Is Tobi lazy still? " + lazy('tobi'))
-display("Is Tobi lazy now? " + lazy('tobi'))
+display("Is Kevin lazy? " + lazy('kevin'))
+display("Is Kevin lazy again? " + lazy('kevin'))
+display("Is Kevin lazy still? " + lazy('kevin'))
+display("Is Kevin lazy now? " + lazy('kevin'))
 ```-->
 
-3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength. Note: The symbol for a logical AND is `&`, and the symbol for a logical NOT is `!`. 
+3. Create a function tugWinner. The function takes in two people, and checks their strength and laziness (using the previous functions). If one is lazy and the other is not, the non-lazy one should be returned. If both or neither are lazy, return the one with the greater strength. Note: The symbol for a logical AND is `&`, and the symbol for a logical NOT is `!`.
 
 <!--
 - SOLUTION:
@@ -163,13 +163,13 @@ var tugWinner = function(person1, person2) {
 		return str1 > str2 ? person1 : person2
 	}
 }
-display("The winner between Tobi and Tomer is: " + tugWinner('tobi', 'tomer'))
-display("The winner between Tobi and Kevin is: " + tugWinner('tobi', 'kevin'))
-display("The winner between Kevin and Tomer is: " + tugWinner('kevin', 'tomer'))
+display("The winner between Kevin and Kelsey is: " + tugWinner('kevin', 'kelsey'))
+display("The winner between Kevin and Josh is: " + tugWinner('kevin', 'josh'))
+display("The winner between Kelsey and Josh is: " + tugWinner('kelsey', 'josh'))
 
-display ("Tobi's strength is: " + strength('tobi'))
-display ("Tomer's strength is: " + strength('tomer'))
 display ("Kevin's strength is: " + strength('kevin'))
+display ("Kelsey's strength is: " + strength('kelsey'))
+display ("Josh's strength is: " + strength('josh'))
 ```
 
 Note that we don't have to worry about equal strengths here -- because these numbers are pulled from a continuous distribution, they will never be exactly equal
