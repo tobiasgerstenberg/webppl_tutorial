@@ -44,7 +44,7 @@ display(instructors[0]) //displaying the first element of the instructor team
 - Let's see whether Tobi is strong:
 
 ```javascript
-var tobi = {
+var kevin = {
 	firstName: "Kevin",
 	lastName: "Smith",
 	strength: 2.5,
@@ -87,7 +87,7 @@ if (personA.strength > personB.strength){
 - Make sure that you have all the bits and pieces you need in the same code window.
 
 ```javascript
-var tobi = {
+var kelsey = {
 	firstName: "Kelsey",
 	lastName: "Allen",
 	strength: 10,
