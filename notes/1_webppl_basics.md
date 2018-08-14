@@ -141,7 +141,7 @@ display(map(mySquare, someNumbers))
 
 ## Practice
 
-1. Create several student objects (like the instructor objects from before). Assign them several properties, including strength.
+1. Create several more objects like the `kevin` and `kelsey` objects from above for some of your fellow students. Assign them several properties, including strength.
 
 <!--
 - SOLUTION:
@@ -173,7 +173,7 @@ var xavier = {
 var showStrength = function(person) {
 	display(person.strength)
 }
-showStrength(tobi)
+showStrength(kevin)
 ```-->
 
 3. Map the function `showStrength()` to an array of students and instructors.
