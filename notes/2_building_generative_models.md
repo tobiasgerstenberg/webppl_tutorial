@@ -87,7 +87,19 @@ display([eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Kevin')])
 var eyeColor = mem(function (person) {
 	return uniformDraw(['blue', 'green', 'brown'])
 })
-display([eyeColor('Kevin'), eyeColor('Kevin'), eyeColor('Kelsey'), eyeColor('Kelsey')])
+display([eyeColor('Kevin'), eyeColor('Kevin'),
+	eyeColor('Josh'), eyeColor('Josh')])
+```
+
+- Note that memoization requires **all** function arguments to be the same to recall its previous draw.
+- For instance, the eyeColor function below allows for different "Kevins" to have different eye colors:
+
+```javascript
+var eyeColor = mem(function (firstName, lastName) {
+	return uniformDraw(['blue', 'green', 'brown'])
+})
+display([eyeColor('Kevin', 'Smith'), eyeColor('Kevin', 'Smith'),
+ 	eyeColor('Kevin', 'McCallister'), eyeColor('Kevin', 'McCallister')])
 ```
 
 ## Recursion
@@ -119,8 +131,8 @@ You SHOULD use memoization here -- A person's strength might change if she start
  ```javascript
 var strength = mem(function (person) {return gaussian(50, 10)})
 
-display("Kelsey's strength: " + strength('kelsey'))
-display("Kelsey's strength: " + strength('kelsey'))
+display("Josh's strength: " + strength('josh'))
+display("Josh's strength: " + strength('josh'))
 display("Kevin's strength: " + strength('kevin'))
 ```-->
 
@@ -163,12 +175,12 @@ var tugWinner = function(person1, person2) {
 		return str1 > str2 ? person1 : person2
 	}
 }
-display("The winner between Kevin and Kelsey is: " + tugWinner('kevin', 'kelsey'))
+display("The winner between Kevin and Andrei is: " + tugWinner('kevin', 'andrei'))
 display("The winner between Kevin and Josh is: " + tugWinner('kevin', 'josh'))
-display("The winner between Kelsey and Josh is: " + tugWinner('kelsey', 'josh'))
+display("The winner between Andrei and Josh is: " + tugWinner('andrei', 'josh'))
 
 display ("Kevin's strength is: " + strength('kevin'))
-display ("Kelsey's strength is: " + strength('kelsey'))
+display ("Andrei's strength is: " + strength('andrei'))
 display ("Josh's strength is: " + strength('josh'))
 ```
 

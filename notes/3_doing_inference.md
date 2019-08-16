@@ -8,7 +8,7 @@
 
 ### Rejection sampling
 
-- We can use recursion to implement rejection query.
+- We can use recursion to implement a rejection query.
 - Here we are interested in the value of `a`, conditioning on the fact that the sum of `a`, `b`, and `c` is `>= 2`.
 
 ```javascript
@@ -80,9 +80,23 @@ viz(dist)
 
 ## Other inference procedures
 
-- In the previous examples, we used rejection sampling (`model: 'rejection'`) to do inference.
+- In the previous examples, we used rejection sampling (`method: 'rejection'`) to do inference.
 - WebPPL implements a number of inference procedures. You can find out more about these here: [http://webppl.readthedocs.io/en/master/inference/methods.html](http://webppl.readthedocs.io/en/master/inference/methods.html)
 - In general, you will **not** want to use rejection sampling. For simple models, the `MCMC` method is usually good enough to get by without the drawbacks of rejection sampling.
+- Here is how you can use MCMC instead of rejection sampling (note you also need the `kernel` argument for this method):
+
+```javascript
+var flippingAway = function(){
+	var a = flip(0.3)
+	var b = flip(0.3)
+	var c = flip(0.3)
+	condition(a + b + c >= 2) //arbitrary expression
+	return a + b //arbitrary expression
+}
+var options = {method: 'MCMC', kernel: 'MH', samples: 1000}
+var dist = Infer(options, flippingAway)
+viz(dist)
+```
 
 ## Practice
 
@@ -109,7 +123,7 @@ var model = function(){
 ```
 
 - First, make sure that you understand all the bits and pieces.
-- Condition on the fact that `"Tom"` beat `"Bill"`, and return the strength of `"Tom"`. (Note: The `beat` function takes teams as input (i.e. two arrays of players). So even if the team only has one player, you still need to put that player into an array.)
+- Condition on the fact that `"Tom"` beat both `"Steve"` and `"Bill"` at once, and return the strength of `"Tom"`. (Note: The `beat` function takes teams as input (i.e. two arrays of players). So even if the team only has one player, you still need to put that player into an array.)
 - For the inference options, please use the following: `var options = {method: 'MCMC', kernel: 'MH', samples: 10000}`. This implements a Markov Chain Monte Carlo inference using the Metropolis-Hastings algorithm.
 - If all goes well, the `viz` function will output a density function. You can print out the mean of the distribution by using the `expectation()` function: `display('Expected strength: ' + expectation(dist))`
 
@@ -144,7 +158,7 @@ display('Expected strength: ' + expectation(dist))
 
 - Extend the tug of war model so that you can ask whether a player was lazy in a particular match.
 - To do so, you need to amend the functions to not only feature persons (or teams) but also matches.
-- You need to make laziness a persistent property (using `mem`) that applies to a person in a match.
+- You need to make laziness a persistent property (using `mem`) that applies to a person in a match (but not always to the same person).
 - Once you've rewritten the code then try the following:
 	+ Condition on the fact that Tom beat Tim in match 1 (hint: `condition(beat(['Tom'],['Tim'],1))`), and ask for whether Tom was lazy in match 1 (and whether Tim was lazy in match 1).
 	+ How does the inference whether Tim was lazy in match1 change for the following series of matches?:

@@ -33,7 +33,7 @@ display(kevin['lazy'])
 - Note that javascript/webppl use 0 indexing. The first element of an array is indexed with 0 (not a 1).
 
 ```javascript
-var instructors = ["Kelsey","Kevin"] //an array of instructors
+var instructors = ["Kevin","Josh"] //an array of instructors
 display(instructors) //displaying the whole team
 display(instructors[0]) //displaying the first element of the instructor team
 ```
@@ -75,7 +75,7 @@ kevin.lazy ? display("Kevin is lazy!") : display("Kevin is not lazy!")
 
 ```javascript
 var returnWinner = function(personA, personB){
-if (personA.strength > personB.strength){
+	if (personA.strength > personB.strength){
 		return personA.firstName
 	} else {
 		return personB.firstName
@@ -83,15 +83,15 @@ if (personA.strength > personB.strength){
 }
 ```
 
-- Let's see who would win in a tug of war between Kelsey and Kevin.
+- Let's see who would win in a tug of war between Josh and Kevin.
 - Make sure that you have all the bits and pieces you need in the same code window.
 
 ```javascript
-var kelsey = {
-	firstName: "Kelsey",
-	lastName: "Allen",
+var josh = {
+	firstName: "Josh",
+	lastName: "Tenenbaum",
 	strength: 10,
-	lazy: true, //note the logical variable here
+	lazy: true,
 }
 
 var kevin = {
@@ -102,14 +102,14 @@ var kevin = {
 }
 
 var returnWinner = function(personA, personB){
-if (personA.strength > personB.strength){
+	if (personA.strength > personB.strength){
 		return personA.firstName
 	} else {
 		return personB.firstName
 	}  
 }
 
-display(returnWinner(kevin,kelsey) + " would win a tug of a war")
+display(returnWinner(kevin,josh) + " would win a tug of a war")
 ```
 
 - Note that you can create functions that take no arguments.
@@ -141,7 +141,7 @@ display(map(mySquare, someNumbers))
 
 ## Practice
 
-1. Create several more objects like the `kevin` and `kelsey` objects from above for some of your fellow students. Assign them several properties, including strength.
+1. Create several more objects like the `kevin` and `josh` objects from above for some of your fellow students. Assign them several properties, including strength.
 
 <!--
 - SOLUTION:
@@ -151,16 +151,16 @@ var kevin = {
 	firstName: "Kevin", lastName: "Smith", strength: 4
 }
 
-var kelsey = {
-	firstName: "Kelsey", lastName: "Allen", strength: 12
+var josh = {
+	firstName: "Josh", lastName: "Tenenbaum", strength: 12
 }
 
 var andrei = {
 	firstName: "Andrei", lastName: "Barbu", strength: 12
 }
 
-var xavier = {
-	firstName: "Xavier", lastName: "Boix", strength: 12
+var andy = {
+	firstName: "Andy", lastName: "Banburski", strength: 12
 }
 ```-->
 
@@ -183,7 +183,7 @@ showStrength(kevin)
 
 ```javascript
 // Map the showStrength() function onto a group
-var everyone = [kevin, kelsey, andrei, xavier]
+var everyone = [kevin, josh, andrei, andy]
 display("Everyone's strengths:")
 map(showStrength, everyone)
 ```-->
@@ -205,6 +205,6 @@ var returnWinner = function(personA, personB){
 }
 
 display(returnWinner(kevin, andrei) + " won a tug of war")
-display(returnWinner(andrei, xavier) + " won a tug of war")
+display(returnWinner(andrei, andy) + " won a tug of war")
 
 ```-->
