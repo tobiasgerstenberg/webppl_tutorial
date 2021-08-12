@@ -159,9 +159,6 @@ var andrei = {
 	firstName: "Andrei", lastName: "Barbu", strength: 12
 }
 
-var andy = {
-	firstName: "Andy", lastName: "Banburski", strength: 12
-}
 ```-->
 
 2. Create a function `showStrength()` for displaying the strength of a student.
@@ -183,7 +180,7 @@ showStrength(kevin)
 
 ```javascript
 // Map the showStrength() function onto a group
-var everyone = [kevin, josh, andrei, andy]
+var everyone = [kevin, josh, andrei]
 display("Everyone's strengths:")
 map(showStrength, everyone)
 ```-->
@@ -205,6 +202,6 @@ var returnWinner = function(personA, personB){
 }
 
 display(returnWinner(kevin, andrei) + " won a tug of war")
-display(returnWinner(andrei, andy) + " won a tug of war")
+display(returnWinner(andrei, josh) + " won a tug of war")
 
 ```-->
